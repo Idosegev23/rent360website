@@ -1,13 +1,50 @@
 import Image from 'next/image';
-import { Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-ink-100 bg-white">
-      <div className="edge py-16 lg:py-20">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-sand-100">
+      {/* Ambient */}
+      <div className="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-brand/10 blur-[140px]" />
+      <div className="pointer-events-none absolute -left-40 -bottom-40 h-[500px] w-[500px] rounded-full bg-clay/10 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.3] mix-blend-multiply bg-grain" />
+
+      <div className="edge relative pb-10 pt-16 lg:pt-20">
+        {/* Big CTA banner inside footer */}
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink via-ink-700 to-ink-800 p-8 text-white shadow-lift sm:p-12">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/35 blur-3xl" />
+          <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-clay/25 blur-3xl" />
+
+          <div className="relative grid items-center gap-6 sm:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-brand-200">
+                מוכנים להתחיל?
+              </p>
+              <p
+                className="mt-3 font-display font-black"
+                style={{
+                  fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                  lineHeight: '1.05',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                הבית של הנכס שלך <br />
+                <span className="text-gradient-warm">מחכה לכם.</span>
+              </p>
+            </div>
+            <a
+              href="#contact"
+              className="btn-brand w-full sm:w-auto"
+            >
+              פגישת ייעוץ חינם
+            </a>
+          </div>
+        </div>
+
+        {/* Main footer grid */}
+        <div className="mt-14 grid gap-10 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-4">
             <Image
               src="/logos/logo.svg"
@@ -24,13 +61,20 @@ export default function Footer() {
               {[
                 { Icon: Instagram, label: 'אינסטגרם', href: '#' },
                 { Icon: Facebook, label: 'פייסבוק', href: '#' },
-                { Icon: MessageCircle, label: 'וואטסאפ', href: 'https://wa.me/972485556060' },
-              ].map(({ Icon, label, href }) => (
+                {
+                  Icon: MessageCircle,
+                  label: 'וואטסאפ',
+                  href: 'https://wa.me/972545650748',
+                  target: '_blank',
+                },
+              ].map(({ Icon, label, href, target }) => (
                 <a
                   key={label}
                   href={href}
+                  target={target}
+                  rel={target ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-500 transition-all hover:border-brand hover:bg-brand hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-sand-300 bg-white/80 text-ink-500 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
                 >
                   <Icon size={15} />
                 </a>
@@ -40,29 +84,33 @@ export default function Footer() {
 
           <div className="md:col-span-3">
             <p className="text-sm font-bold text-ink">יצירת קשר</p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="tel:0485556060"
-                  className="block font-display text-xl font-bold tabular text-ink hover:text-brand"
+                  href="tel:+972545650748"
+                  className="flex items-center gap-2 font-display text-xl font-bold tabular text-ink hover:text-brand"
                   dir="ltr"
                 >
-                  04-855-6060
+                  <Phone size={14} className="text-brand" />
+                  054-565-0748
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:rent@rent360.co.il"
-                  className="block text-sm font-semibold text-ink-600 hover:text-brand"
+                  className="flex items-center gap-2 text-sm font-semibold text-ink-600 hover:text-brand"
                   dir="ltr"
                 >
+                  <Mail size={13} className="text-brand" />
                   rent@rent360.co.il
                 </a>
               </li>
-              <li className="pt-2 text-sm text-ink-500">
-                שד׳ ויצמן 74,
-                <br />
-                קרית ביאליק
+              <li className="flex items-start gap-2 pt-1 text-sm text-ink-500">
+                <MapPin size={13} className="mt-1 shrink-0 text-brand" />
+                <span>
+                  שד׳ גושן משה <br />
+                  קרית מוצקין 2631217
+                </span>
               </li>
             </ul>
           </div>
@@ -101,7 +149,7 @@ export default function Footer() {
                 'קרית חיים',
               ].map((k) => (
                 <li key={k} className="flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-brand" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-brand to-clay" />
                   {k}
                 </li>
               ))}
@@ -109,14 +157,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ink-100 pt-6 text-xs text-ink-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Rent360. כל הזכויות שמורות.</p>
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col gap-3 border-t border-sand-300/60 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year}{' '}
+            <span className="font-semibold text-ink">
+              רנט 360 אנטרפרייז בע״מ
+            </span>
+            . כל הזכויות שמורות.
+          </p>
           <p className="flex items-center gap-4">
-            <a href="#" className="hover:text-ink">תקנון</a>
-            <span className="text-ink-200">·</span>
-            <a href="#" className="hover:text-ink">פרטיות</a>
-            <span className="text-ink-200">·</span>
-            <a href="#" className="hover:text-ink">נגישות</a>
+            <a href="#" className="hover:text-ink">
+              תקנון
+            </a>
+            <span className="text-sand-400">·</span>
+            <a href="#" className="hover:text-ink">
+              פרטיות
+            </a>
+            <span className="text-sand-400">·</span>
+            <a href="#" className="hover:text-ink">
+              נגישות
+            </a>
           </p>
         </div>
       </div>

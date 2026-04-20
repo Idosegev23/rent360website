@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Rubik, Assistant } from 'next/font/google';
+import { Rubik, Assistant, Fraunces } from 'next/font/google';
 import './globals.css';
 
 const rubik = Rubik({
@@ -13,6 +13,14 @@ const assistant = Assistant({
   subsets: ['hebrew', 'latin'],
   variable: '--font-body',
   weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -41,7 +49,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${rubik.variable} ${assistant.variable}`}>
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${rubik.variable} ${assistant.variable} ${fraunces.variable}`}
+    >
       <head>
         <meta
           name="facebook-domain-verification"

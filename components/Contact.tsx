@@ -14,6 +14,7 @@ import {
   Mail,
   MapPin,
   Clock,
+  MessageCircle,
 } from 'lucide-react';
 
 const KRAYOT = [
@@ -57,7 +58,7 @@ export default function Contact() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { track: 'na', area: 'קרית ביאליק' },
+    defaultValues: { track: 'na', area: 'קרית מוצקין' },
   });
 
   const track = watch('track');
@@ -80,21 +81,32 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-20 lg:py-28">
-      <div className="edge">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-white py-24 lg:py-32"
+    >
+      <div className="pointer-events-none absolute -left-40 top-20 h-[400px] w-[400px] rounded-full bg-brand/8 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 bottom-20 h-[400px] w-[400px] rounded-full bg-clay/8 blur-[120px]" />
+
+      <div className="edge relative">
         <div className="grid gap-10 md:grid-cols-12 md:gap-14">
+          {/* Left — info */}
           <div className="md:col-span-5">
             <span className="kicker">יצירת קשר</span>
-            <h2
-              className="mt-5 h-display"
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
+              className="mt-6 h-display"
               style={{
-                fontSize: 'clamp(2.25rem, 5vw, 3.75rem)',
+                fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
                 lineHeight: '1.02',
               }}
             >
               פגישת ייעוץ — <br />
-              <span className="text-brand">ללא עלות.</span>
-            </h2>
+              <span className="text-gradient-warm">ללא עלות.</span>
+            </motion.h2>
             <p className="lede mt-7 max-w-md">
               השאירו פרטים ונחזור תוך{' '}
               <strong className="text-ink">שעה</strong> בשעות העבודה. שיחה אישית
@@ -104,9 +116,16 @@ export default function Contact() {
             <div className="mt-10 space-y-3">
               <Tile
                 icon={<Phone size={17} />}
-                label="טלפון · וואטסאפ"
-                value="04-855-6060"
-                href="tel:0485556060"
+                label="טלפון"
+                value="054-565-0748"
+                href="tel:+972545650748"
+              />
+              <Tile
+                icon={<MessageCircle size={17} />}
+                label="וואטסאפ"
+                value="שליחת הודעה"
+                href="https://wa.me/972545650748"
+                accent
               />
               <Tile
                 icon={<Mail size={17} />}
@@ -117,7 +136,7 @@ export default function Contact() {
               <Tile
                 icon={<MapPin size={17} />}
                 label="המשרד"
-                value="שד׳ ויצמן 74, קרית ביאליק"
+                value="שד׳ גושן משה, קרית מוצקין 2631217"
               />
               <Tile
                 icon={<Clock size={17} />}
@@ -125,20 +144,30 @@ export default function Contact() {
                 value="א׳–ה׳ 09:00–19:00 · ו׳ 09:00–13:00"
               />
             </div>
+
+            {/* Small reassurance card */}
+            <div className="mt-6 rounded-2xl border border-sand-200 bg-cream/60 p-4 text-xs text-ink-500 backdrop-blur-sm">
+              <span className="font-bold text-ink">רנט 360 אנטרפרייז בע״מ</span>
+              {' · '}ח.פ. רשום{' · '}שירות באזור הקריות בלבד
+            </div>
           </div>
 
+          {/* Right — form */}
           <div className="md:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5 }}
-              className="rounded-3xl border border-ink-100 bg-cream p-6 shadow-soft sm:p-10"
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden rounded-[2rem] border border-sand-200 bg-gradient-to-br from-cream to-sand-50 p-6 shadow-soft sm:p-10"
             >
+              {/* Ambient */}
+              <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand/12 blur-3xl" />
+
               {status === 'success' ? (
                 <SuccessState onReset={() => setStatus('idle')} />
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-6">
                   <div>
                     <label className="label">המסלול שמעניין אותי</label>
                     <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
@@ -147,9 +176,17 @@ export default function Contact() {
                           key={t.k}
                           className={`flex cursor-pointer flex-col rounded-xl border p-3 transition-all ${
                             track === t.k
-                              ? 'border-brand bg-brand text-white'
-                              : 'border-ink-200 bg-white text-ink hover:border-ink'
+                              ? 'border-brand shadow-warm text-white'
+                              : 'border-sand-200 bg-white/80 text-ink hover:border-ink'
                           }`}
+                          style={
+                            track === t.k
+                              ? {
+                                  backgroundImage:
+                                    'linear-gradient(135deg,#F47B20,#D96711)',
+                                }
+                              : undefined
+                          }
                         >
                           <input
                             type="radio"
@@ -178,11 +215,19 @@ export default function Contact() {
                       {KRAYOT.map((k) => (
                         <label
                           key={k}
-                          className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                          className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
                             area === k
-                              ? 'border-brand bg-brand text-white'
-                              : 'border-ink-200 bg-white text-ink hover:border-ink'
+                              ? 'border-brand shadow-warm text-white'
+                              : 'border-sand-200 bg-white/80 text-ink hover:border-ink'
                           }`}
+                          style={
+                            area === k
+                              ? {
+                                  backgroundImage:
+                                    'linear-gradient(135deg,#F47B20,#D96711)',
+                                }
+                              : undefined
+                          }
                         >
                           <input
                             type="radio"
@@ -248,11 +293,11 @@ export default function Contact() {
                   {status === 'error' && (
                     <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
                       <AlertCircle size={16} />
-                      משהו השתבש. נסו שוב או התקשרו: 04-855-6060.
+                      משהו השתבש. נסו שוב או התקשרו: 054-565-0748.
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-4 border-t border-ink-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-col gap-4 border-t border-sand-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
                     <p className="max-w-xs text-[11px] leading-relaxed text-ink-400">
                       הפגישה ללא עלות וללא התחייבות.
                     </p>
@@ -292,19 +337,31 @@ function Tile({
   label,
   value,
   href,
+  accent,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   href?: string;
+  accent?: boolean;
 }) {
   const Tag = (href ? 'a' : 'div') as 'a' | 'div';
+  const extra = href?.startsWith('https://wa.me') ? { target: '_blank', rel: 'noopener noreferrer' } : {};
   return (
     <Tag
-      {...(href ? { href } : {})}
-      className="group flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-4 transition-all hover:border-brand/30 hover:shadow-soft"
+      {...(href ? { href, ...extra } : {})}
+      className={`group flex items-center gap-4 rounded-2xl border p-4 transition-all hover:-translate-y-0.5 ${
+        accent
+          ? 'border-brand/30 bg-gradient-to-br from-brand/5 to-clay/5 hover:border-brand hover:shadow-warm'
+          : 'border-sand-200 bg-white/80 backdrop-blur-sm hover:border-brand/40 hover:shadow-soft'
+      }`}
     >
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+      <div
+        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-warm transition-transform group-hover:scale-110 ${
+          accent ? '' : 'bg-gradient-to-br from-brand to-clay'
+        }`}
+        style={accent ? { backgroundImage: 'linear-gradient(135deg,#25D366,#128C7E)' } : undefined}
+      >
         {icon}
       </div>
       <div className="min-w-0">
@@ -352,29 +409,50 @@ function Field({
 
 function SuccessState({ onReset }: { onReset: () => void }) {
   return (
-    <div className="flex flex-col items-start py-6 sm:py-10">
+    <div className="relative flex flex-col items-start py-6 sm:py-10">
+      {/* Confetti dots */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {[...Array(8)].map((_, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: 0, scale: 0.6 }}
+            animate={{ opacity: [0, 1, 0], y: [-10, -60 - i * 5, -80] }}
+            transition={{ duration: 1.6, delay: i * 0.08, ease: 'easeOut' }}
+            className="absolute rounded-full"
+            style={{
+              left: `${10 + i * 10}%`,
+              top: '40%',
+              width: 8,
+              height: 8,
+              background: i % 2 === 0 ? '#F47B20' : '#C9623F',
+            }}
+          />
+        ))}
+      </div>
+
       <motion.div
         initial={{ scale: 0.6, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-brand text-white"
+        className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand to-clay text-white shadow-warm"
       >
-        <CheckCircle2 size={28} />
+        <CheckCircle2 size={32} />
+        <span className="absolute inset-0 animate-pulse-ring rounded-full bg-brand/50" />
       </motion.div>
       <h3
         className="mt-7 h-display"
         style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', lineHeight: '1' }}
       >
         נעים להכיר. <br />
-        <span className="text-brand">קיבלנו.</span>
+        <span className="text-gradient-warm">קיבלנו.</span>
       </h3>
       <p className="mt-6 max-w-md text-base leading-[1.7] text-ink-500">
         סוכן אישי יחזור אליכם תוך שעה בשעות העבודה. אם זה דחוף —
         <a
-          href="tel:0485556060"
+          href="tel:+972545650748"
           className="mr-1 font-bold text-ink underline decoration-brand decoration-2 underline-offset-4"
         >
-          04-855-6060
+          054-565-0748
         </a>
         .
       </p>
