@@ -13,19 +13,21 @@ import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
-    <main className="relative">
+    <>
       <Navbar />
-      <Hero />
-      <Marquee />
-      <Manifesto />
-      <Founder />
-      <Process />
-      <Tracks />
-      <Differentiators />
-      <Neighborhoods />
-      <Testimonials />
-      <Contact />
+      <main id="main" className="relative">
+        <Hero />
+        <Marquee />
+        <Manifesto />
+        <Founder />
+        <Process />
+        <Tracks />
+        <Differentiators />
+        <Neighborhoods />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

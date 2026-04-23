@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Rubik, Assistant, Fraunces } from 'next/font/google';
 import './globals.css';
+import AccessibilityWidget from '@/components/AccessibilityWidget';
 
 const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
@@ -60,7 +61,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           content="ug0gy4un46pt5p7nshjejwyhemjsxw"
         />
       </head>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <a href="#main" className="skip-link">
+          דלגו לתוכן הראשי
+        </a>
+        {children}
+        <AccessibilityWidget />
+      </body>
     </html>
   );
 }

@@ -167,16 +167,16 @@ export default function Footer() {
             . כל הזכויות שמורות.
           </p>
           <p className="flex items-center gap-4">
+            <a href="/accessibility" className="hover:text-ink">
+              הצהרת נגישות
+            </a>
+            <span className="text-sand-400">·</span>
             <a href="#" className="hover:text-ink">
               תקנון
             </a>
             <span className="text-sand-400">·</span>
             <a href="#" className="hover:text-ink">
               פרטיות
-            </a>
-            <span className="text-sand-400">·</span>
-            <a href="#" className="hover:text-ink">
-              נגישות
             </a>
           </p>
         </div>

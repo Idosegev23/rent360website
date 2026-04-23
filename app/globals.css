@@ -244,6 +244,176 @@ body {
   animation: shimmer 3s linear infinite;
 }
 
+/* --------------------------------------------------
+ * Accessibility (IS 5568 / WCAG 2.1 AA)
+ * -------------------------------------------------- */
+
+/* Skip-to-main link — visible only on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: #111113;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transition: top 0.15s ease-out;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #f47b20;
+  outline-offset: 2px;
+}
+
+/* Global focus-visible (stronger than default for keyboard users) */
+:focus-visible {
+  outline: 3px solid #f47b20 !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+/* Don't nuke buttons' own ring styles when possible */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #f47b20 !important;
+  outline-offset: 2px !important;
+}
+
+/* === Font scaling === */
+.a11y-font-1 {
+  font-size: 110%;
+}
+.a11y-font-2 {
+  font-size: 125%;
+}
+.a11y-font-3 {
+  font-size: 150%;
+}
+
+/* === High contrast === */
+.a11y-contrast-high,
+.a11y-contrast-high body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+.a11y-contrast-high * {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+.a11y-contrast-high a,
+.a11y-contrast-high button {
+  color: #0000ee !important;
+  text-decoration: underline !important;
+}
+.a11y-contrast-high header,
+.a11y-contrast-high footer,
+.a11y-contrast-high section {
+  background: #ffffff !important;
+}
+.a11y-contrast-high svg,
+.a11y-contrast-high img {
+  filter: grayscale(100%) contrast(1.3) !important;
+}
+
+/* === Inverted (high-contrast dark) === */
+.a11y-contrast-inverted,
+.a11y-contrast-inverted body {
+  background: #000000 !important;
+  color: #ffff00 !important;
+}
+.a11y-contrast-inverted * {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  box-shadow: none !important;
+}
+.a11y-contrast-inverted a,
+.a11y-contrast-inverted button {
+  color: #00ffff !important;
+  text-decoration: underline !important;
+}
+.a11y-contrast-inverted svg,
+.a11y-contrast-inverted img {
+  filter: invert(1) hue-rotate(180deg) contrast(1.2) !important;
+}
+
+/* === Grayscale === */
+.a11y-grayscale {
+  filter: grayscale(100%);
+}
+
+/* === Highlight links === */
+.a11y-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+  font-weight: 700 !important;
+  outline: 1px dashed currentColor !important;
+  outline-offset: 2px !important;
+}
+
+/* === Highlight headings === */
+.a11y-headings h1,
+.a11y-headings h2,
+.a11y-headings h3,
+.a11y-headings h4,
+.a11y-headings h5,
+.a11y-headings h6 {
+  outline: 2px solid #f47b20 !important;
+  outline-offset: 4px !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+}
+
+/* === Readable font (swap to system sans, higher line-height, letter spacing) === */
+.a11y-readable,
+.a11y-readable * {
+  font-family: 'Arial', 'Helvetica', sans-serif !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.8 !important;
+  word-spacing: 0.1em !important;
+}
+
+/* === Stop all motion === */
+.a11y-no-motion,
+.a11y-no-motion *,
+.a11y-no-motion *::before,
+.a11y-no-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* === Large cursor === */
+.a11y-cursor,
+.a11y-cursor * {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'><path d='M4 2l16 10-7 2 3 7-3 1-3-7-5 5z' fill='%23111113' stroke='%23ffffff' stroke-width='1'/></svg>")
+      4 2,
+    auto !important;
+}
+
+/* The a11y widget itself should never be hidden by the above */
+.a11y-toggle,
+#a11y-menu,
+#a11y-menu * {
+  filter: none !important;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
