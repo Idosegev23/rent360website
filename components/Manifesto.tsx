@@ -57,12 +57,12 @@ export default function Manifesto() {
                 className="mt-6 h-display"
                 style={{
                   fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
-                  lineHeight: '1.02',
+                  lineHeight: '1.05',
                 }}
               >
-                השקט שלך <br />
-                שווה כסף. <br />
-                <span className="h-serif italic text-gradient-warm" dir="rtl">
+                השקט שלך שווה כסף.
+                <br />
+                <span className="text-gradient-warm">
                   ואנחנו יודעים לייצר אותו.
                 </span>
               </h2>
@@ -78,17 +78,17 @@ export default function Manifesto() {
                   במייל.
                 </p>
                 <p>
-                  <strong className="text-ink">אנחנו פועלים רק ב־5 הקריות</strong>
-                  . זה המפתח — אנחנו יודעים את המחירים האמיתיים, את הבניינים
-                  הבעייתיים, ואת השוכרים המתאימים לכל רחוב.
+                  <strong className="text-ink">אנחנו פועלים בקריות, חיפה ונשר</strong>
+                  . זה המפתח — אנחנו מכירים את האזור לעומק: את המחירים האמיתיים,
+                  את הבניינים, ואת השוכרים המתאימים לכל רחוב.
                 </p>
               </div>
 
               {/* Pull-quote strip */}
               <div className="relative mt-10 overflow-hidden rounded-3xl border border-sand-200 bg-gradient-to-br from-cream to-sand-50 p-6 sm:p-7">
                 <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand/15 blur-2xl" />
-                <p className="relative font-serif text-xl italic leading-relaxed text-ink sm:text-2xl">
-                  ״הבית שלך צריך לעבוד בשבילך — לא להפך.״
+                <p className="relative font-display text-xl font-medium leading-relaxed text-ink sm:text-2xl">
+                  ״הדירה שלך צריכה לעבוד בשבילך — לא להפך.״
                 </p>
                 <p className="relative mt-3 text-xs font-bold uppercase tracking-wider text-clay-500">
                   — פילוסופיית Rent360

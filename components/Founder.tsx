@@ -6,13 +6,13 @@ import { GraduationCap, Building2, Sparkles, Briefcase, Quote } from 'lucide-rea
 const credentials = [
   {
     icon: Briefcase,
-    title: 'שנות ניסיון בנדל״ן',
-    body: 'ניהול והשכרה של נכסים, עם התמחות בשוק המקומי של הקריות.',
+    title: 'ניסיון של שנים בתחום הנדל״ן',
+    body: 'ניהול והשכרת נכסים באזור הקריות, חיפה ונשר — היכרות מעמיקה עם השטח.',
   },
   {
     icon: Sparkles,
     title: 'שיווק פרויקטים יוקרתיים',
-    body: 'הבנה שהנכס שלך הוא מוצר — ומגיעה לו הצגה ברמה גבוהה.',
+    body: 'רקע בשיווק נדל״ן פרימיום — הנכס שלך מוצג ברמה הגבוהה ביותר.',
   },
   {
     icon: GraduationCap,
@@ -94,7 +94,7 @@ export default function Founder() {
                     זיו עטיה
                   </p>
                   <p className="mt-1.5 text-sm text-white/70">
-                    בן 35 · תושב הצפון · מייסד Rent360
+                    מייסד ומנכ״ל · Rent360
                   </p>
                 </div>
               </div>
@@ -173,9 +173,9 @@ export default function Founder() {
             <div className="relative mt-8 overflow-hidden rounded-3xl border border-sand-200 bg-white/90 p-6 shadow-soft backdrop-blur-sm sm:p-7">
               <div className="pointer-events-none absolute inset-y-0 right-0 w-1.5 bg-gradient-to-b from-brand via-clay to-brand-700" />
               <Quote size={28} className="absolute left-6 top-6 text-brand/25" strokeWidth={1.5} />
-              <p className="relative mr-3 font-serif text-xl italic leading-snug text-ink sm:text-2xl">
-                ״הולכים יד ביד. יודעים לזהות את הצרכים האישיים של כל בעל נכס —
-                ולתת להם מענה.״
+              <p className="relative mr-3 font-display text-xl font-medium leading-snug text-ink sm:text-2xl">
+                הולכים יד ביד. יודעים לזהות את הצרכים האישיים של כל בעל נכס —
+                ולתת להם מענה.
               </p>
               <p className="relative mt-4 mr-3 text-xs font-bold uppercase tracking-wider text-clay-500">
                 — זיו עטיה, מייסד

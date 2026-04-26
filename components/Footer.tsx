@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Instagram, Facebook, MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
+import { MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -54,31 +54,20 @@ export default function Footer() {
               className="h-10 w-auto"
             />
             <p className="mt-5 max-w-xs text-sm leading-[1.7] text-ink-500">
-              ניהול נכסים חכם לבעלי דירות באזור הקריות. שירות מלא — מהעלאת הנכס
-              ועד השקט שבאמצע הלילה.
+              ניהול והשכרת נכסים בקריות, חיפה ונשר. שירות מלא לבעלי דירות —
+              מהעלאת הנכס לשוק ועד ניהול שוטף לאורך זמן.
             </p>
             <div className="mt-6 flex gap-2">
-              {[
-                { Icon: Instagram, label: 'אינסטגרם', href: '#' },
-                { Icon: Facebook, label: 'פייסבוק', href: '#' },
-                {
-                  Icon: MessageCircle,
-                  label: 'וואטסאפ',
-                  href: 'https://wa.me/972545650748',
-                  target: '_blank',
-                },
-              ].map(({ Icon, label, href, target }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={target}
-                  rel={target ? 'noopener noreferrer' : undefined}
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-sand-300 bg-white/80 text-ink-500 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
-                >
-                  <Icon size={15} />
-                </a>
-              ))}
+              <a
+                href="https://wa.me/972545650748"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="וואטסאפ"
+                className="flex items-center gap-2 rounded-full border border-sand-300 bg-white/80 px-4 py-2 text-sm font-bold text-ink-700 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
+              >
+                <MessageCircle size={15} />
+                שלחו וואטסאפ
+              </a>
             </div>
           </div>
 
@@ -108,8 +97,9 @@ export default function Footer() {
               <li className="flex items-start gap-2 pt-1 text-sm text-ink-500">
                 <MapPin size={13} className="mt-1 shrink-0 text-brand" />
                 <span>
-                  שד׳ גושן משה <br />
-                  קרית מוצקין 2631217
+                  שדרות משה גושן 27,
+                  <br />
+                  קרית מוצקין
                 </span>
               </li>
             </ul>
@@ -147,6 +137,8 @@ export default function Footer() {
                 'קרית מוצקין',
                 'קרית אתא',
                 'קרית חיים',
+                'חיפה',
+                'נשר',
               ].map((k) => (
                 <li key={k} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-brand to-clay" />
@@ -171,12 +163,12 @@ export default function Footer() {
               הצהרת נגישות
             </a>
             <span className="text-sand-400">·</span>
-            <a href="#" className="hover:text-ink">
+            <a href="/terms" className="hover:text-ink">
               תקנון
             </a>
             <span className="text-sand-400">·</span>
-            <a href="#" className="hover:text-ink">
-              פרטיות
+            <a href="/privacy" className="hover:text-ink">
+              מדיניות פרטיות
             </a>
           </p>
         </div>

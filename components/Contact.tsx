@@ -23,6 +23,8 @@ const KRAYOT = [
   'קרית מוצקין',
   'קרית אתא',
   'קרית חיים',
+  'חיפה',
+  'נשר',
 ] as const;
 
 const TRACKS = [
@@ -108,17 +110,28 @@ export default function Contact() {
               <span className="text-gradient-warm">ללא עלות.</span>
             </motion.h2>
             <p className="lede mt-7 max-w-md">
-              השאירו פרטים ונחזור תוך{' '}
-              <strong className="text-ink">שעה</strong> בשעות העבודה. שיחה אישית
-              קצרה, לא מכירתית, להבין את הנכס והצרכים.
+              השאירו פרטים ונחזור אליכם בהקדם. שיחה אישית קצרה, לא מכירתית,
+              להבין את הנכס והצרכים.
             </p>
 
             <div className="mt-10 space-y-3">
               <Tile
                 icon={<Phone size={17} />}
-                label="טלפון"
+                label="זיו עטיה · מנכ״ל"
                 value="054-565-0748"
                 href="tel:+972545650748"
+              />
+              <Tile
+                icon={<Phone size={17} />}
+                label="אלה · משרד"
+                value="054-000-0000"
+                href="tel:+972540000000"
+              />
+              <Tile
+                icon={<Phone size={17} />}
+                label="דריה · משרד"
+                value="054-000-0000"
+                href="tel:+972540000000"
               />
               <Tile
                 icon={<MessageCircle size={17} />}
@@ -136,7 +149,7 @@ export default function Contact() {
               <Tile
                 icon={<MapPin size={17} />}
                 label="המשרד"
-                value="שד׳ גושן משה, קרית מוצקין 2631217"
+                value="שדרות משה גושן 27, קרית מוצקין"
               />
               <Tile
                 icon={<Clock size={17} />}
@@ -148,7 +161,7 @@ export default function Contact() {
             {/* Small reassurance card */}
             <div className="mt-6 rounded-2xl border border-sand-200 bg-cream/60 p-4 text-xs text-ink-500 backdrop-blur-sm">
               <span className="font-bold text-ink">רנט 360 אנטרפרייז בע״מ</span>
-              {' · '}ח.פ. רשום{' · '}שירות באזור הקריות בלבד
+              {' · '}שירות בקריות, חיפה ונשר
             </div>
           </div>
 
@@ -447,7 +460,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
         <span className="text-gradient-warm">קיבלנו.</span>
       </h3>
       <p className="mt-6 max-w-md text-base leading-[1.7] text-ink-500">
-        סוכן אישי יחזור אליכם תוך שעה בשעות העבודה. אם זה דחוף —
+        סוכן אישי יחזור אליכם בהקדם, בשעות הפעילות. אם זה דחוף —
         <a
           href="tel:+972545650748"
           className="mr-1 font-bold text-ink underline decoration-brand decoration-2 underline-offset-4"

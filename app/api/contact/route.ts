@@ -7,6 +7,8 @@ const KRAYOT = [
   'קרית מוצקין',
   'קרית אתא',
   'קרית חיים',
+  'חיפה',
+  'נשר',
 ] as const;
 
 const schema = z.object({

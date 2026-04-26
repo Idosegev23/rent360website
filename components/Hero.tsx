@@ -1,8 +1,55 @@
 'use client';
 
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion';
 import { ArrowLeft, Check, Star, MapPin, Home, KeyRound, ShieldCheck } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
+const LISTINGS = [
+  { rooms: '4 חדרים', area: 'נווה גנים, ביאליק', price: '6,400₪', tag: 'פורסם עכשיו' },
+  { rooms: '3 חדרים', area: 'בן גוריון, מוצקין', price: '4,600₪', tag: 'חדש במאגר' },
+  { rooms: '4 חדרים', area: 'דרך עכו, חיפה', price: '7,200₪', tag: 'פורסם הבוקר' },
+  { rooms: '3 חדרים', area: 'נשר עילית', price: '5,100₪', tag: 'חדש במאגר' },
+  { rooms: 'דופלקס 5 חד׳', area: 'הסביונים, ביאליק', price: '8,900₪', tag: 'פורסם השבוע' },
+  { rooms: '2 חדרים', area: 'תאשור, קרית ים', price: '3,800₪', tag: 'נכנס לרגע' },
+];
+
+function RotatingListing() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setI((x) => (x + 1) % LISTINGS.length), 3500);
+    return () => clearInterval(id);
+  }, []);
+  const l = LISTINGS[i];
+  return (
+    <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.4 }}
+          className="flex items-center gap-3"
+        >
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-clay text-white shadow-warm">
+            <Home size={18} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-white/50">
+              {l.tag}
+            </p>
+            <p className="mt-0.5 truncate font-display text-sm font-bold">
+              {l.rooms} · {l.area} · {l.price}
+            </p>
+          </div>
+          <span className="shrink-0 rounded-full bg-moss/90 px-2 py-0.5 text-[10px] font-bold text-white">
+            פנוי
+          </span>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
 
 /* Animated number counter */
 function Counter({ to, suffix = '', duration = 1.6 }: { to: number; suffix?: string; duration?: number }) {
@@ -76,11 +123,9 @@ export default function Hero() {
                 letterSpacing: '-0.035em',
               }}
             >
-              ניהול נכסים שהופך
-              <br />
-              השכרה לדבר{' '}
+              ניהול נכסים שהופך השכרה לחוויה{' '}
               <span className="relative inline-block">
-                <span className="relative z-10 text-gradient-warm">נעים.</span>
+                <span className="relative z-10 text-gradient-warm">נעימה ובטוחה.</span>
                 <svg
                   className="absolute inset-x-0 -bottom-3 h-4 w-full sm:-bottom-4 sm:h-5"
                   viewBox="0 0 240 18"
@@ -104,11 +149,22 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-7 max-w-xl font-body text-lg leading-[1.65] text-ink-500 sm:text-xl"
+              transition={{ duration: 0.6, delay: 0.22 }}
+              className="mt-7 max-w-2xl font-body text-lg leading-[1.65] text-ink-500 sm:text-xl"
+            >
+              איתור שוכרים באמצעות{' '}
+              <strong className="font-bold text-ink">טכנולוגיה פורצת דרך המשלבת AI</strong>
+              {' '}— כך אנחנו מאתרים שוכרים מתאימים בטווח קצר.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-4 max-w-2xl font-body text-base leading-[1.7] text-ink-500"
             >
               Rent360 מנהלת את הנכס שלכם מהעלאת המודעה ועד החוזה — וגם אחריו.
-              שירות מלא לבעלי דירות באזור הקריות: ביאליק, ים, מוצקין, אתא, חיים.
+              שירות מלא לבעלי דירות בקריות, חיפה ונשר.
             </motion.p>
 
             <motion.ul
@@ -177,9 +233,9 @@ export default function Hero() {
                 ))}
               </div>
               <p className="text-xs leading-relaxed text-ink-500">
-                <span className="font-bold text-ink">540+ בעלי נכסים</span> הפקידו בידינו
+                <span className="font-bold text-ink">540+ שוכרים פעילים</span> במאגר
                 <br />
-                את שקט הנפש שלהם השנה.
+                מחכים לדירה הבאה שלהם.
               </p>
             </motion.div>
           </div>
@@ -247,23 +303,8 @@ export default function Hero() {
                   <Stat value={92} suffix="%" label="דיירים שנשארים" />
                 </div>
 
-                {/* Inline mini 'property card' preview */}
-                <div className="relative mt-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-clay text-white shadow-warm">
-                    <Home size={18} />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-white/50">
-                      פורסם עכשיו
-                    </p>
-                    <p className="mt-0.5 font-display text-sm font-bold">
-                      4 חדרים · נווה גנים · 6,400₪
-                    </p>
-                  </div>
-                  <span className="rounded-full bg-moss/90 px-2 py-0.5 text-[10px] font-bold text-white">
-                    פנוי
-                  </span>
-                </div>
+                {/* Rotating live property feed */}
+                <RotatingListing />
               </div>
 
               {/* Floating testimonial */}

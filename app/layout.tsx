@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Rubik, Assistant, Fraunces } from 'next/font/google';
 import './globals.css';
 import AccessibilityWidget from '@/components/AccessibilityWidget';
+import CookieConsent from '@/components/CookieConsent';
 
 const rubik = Rubik({
   subsets: ['hebrew', 'latin'],
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           דלגו לתוכן הראשי
         </a>
         {children}
+        <CookieConsent />
         <AccessibilityWidget />
       </body>
     </html>

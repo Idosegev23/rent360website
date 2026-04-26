@@ -97,6 +97,38 @@ const hoods: Hood[] = [
     icon: Home,
     accent: 'from-clay to-clay-600',
   },
+  {
+    num: '06',
+    name: 'חיפה',
+    eng: 'Haifa',
+    meta: 'מטרופולין · אוניברסיטה · נוף לים',
+    body:
+      'הדר, כרמל, רמות בן גוריון, נווה שאנן. שוק רחב ומגוון — מסטודנטים בהדר ועד משפחות בכרמל. הביקוש משתנה מאוד בין שכונה לשכונה.',
+    landmarks: ['הכרמל', 'הדר', 'הטכניון', 'נווה שאנן'],
+    stats: [
+      { k: 'ממוצע 3 חד׳', v: '5,200₪' },
+      { k: 'ימים לחוזה', v: '10 ימ׳' },
+      { k: 'ביקוש', v: 'גבוה מאוד' },
+    ],
+    icon: Building,
+    accent: 'from-brand-600 to-clay-500',
+  },
+  {
+    num: '07',
+    name: 'נשר',
+    eng: 'Nesher',
+    meta: 'שקטה · ירוקה · ליד הטכניון',
+    body:
+      'הקרבה לטכניון ולחיפה הופכת את נשר למוקד למשפחות צעירות ולסגל אקדמי. שוק יציב ועליה הדרגתית במחירים.',
+    landmarks: ['גבעת נשר', 'בן צבי', 'הטכניון', 'מרכז העיר'],
+    stats: [
+      { k: 'ממוצע 4 חד׳', v: '5,800₪' },
+      { k: 'ימים לחוזה', v: '9 ימ׳' },
+      { k: 'ביקוש', v: 'יציב' },
+    ],
+    icon: TreePine,
+    accent: 'from-moss-500 to-moss-600',
+  },
 ];
 
 export default function Neighborhoods() {
@@ -116,7 +148,7 @@ export default function Neighborhoods() {
       <div className="edge relative">
         <div className="grid gap-8 pb-14 md:grid-cols-12 md:gap-16 md:pb-16">
           <div className="md:col-span-5">
-            <span className="kicker">הקריות</span>
+            <span className="kicker">אזורי פעילות</span>
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -128,14 +160,14 @@ export default function Neighborhoods() {
                 lineHeight: '1.02',
               }}
             >
-              חמש שכונות, <br />
-              <span className="text-gradient-warm">חמישה אופי שונים.</span>
+              מכירים את האזור{' '}
+              <span className="text-gradient-warm">בית־בית.</span>
             </motion.h2>
           </div>
           <div className="md:col-span-7 md:pt-4">
             <p className="lede">
-              אנחנו לא מוכרים לכם &quot;הקריות&quot;. מבינים שכל קרייה היא עולם אחר —
-              תחבורה, אופי, ביקוש, טווח מחירים.
+              קריות, חיפה ונשר. כל אזור — אופי משלו, ביקוש משלו, טווח מחירים משלו.
+              אנחנו מכירים את כל הניואנסים של השטח.
             </p>
           </div>
         </div>
