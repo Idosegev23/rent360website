@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const credentials = [
@@ -35,24 +36,18 @@ export default function Founder() {
             className="md:col-span-5"
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-ink">
-              {/* Subtle warm gradient backdrop for monogram */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(180deg, #18181B 0%, #0A0A0B 100%)',
-                }}
+              <Image
+                src="/ziv.png"
+                alt="זיו עטיה — מייסד ומנכ״ל Rent360"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span
-                  className="font-display font-bold text-brand"
-                  style={{ fontSize: 'clamp(10rem, 22vw, 20rem)', lineHeight: 1, letterSpacing: '-0.05em' }}
-                >
-                  ז
-                </span>
-              </div>
+              {/* Bottom gradient for caption legibility */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-8">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50" dir="ltr">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60" dir="ltr">
                   Founder · CEO
                 </p>
                 <p
