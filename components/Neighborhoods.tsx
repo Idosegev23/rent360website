@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowLeft, MapPin, Compass, Building, Waves, TreePine, Home } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 type Hood = {
   num: string;
@@ -12,8 +12,6 @@ type Hood = {
   body: string;
   landmarks: string[];
   stats: { k: string; v: string }[];
-  icon: any;
-  accent: string;
 };
 
 const hoods: Hood[] = [
@@ -30,8 +28,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '9 ימ׳' },
       { k: 'ביקוש', v: 'גבוה' },
     ],
-    icon: TreePine,
-    accent: 'from-moss-400 to-moss-600',
   },
   {
     num: '02',
@@ -46,8 +42,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '7 ימ׳' },
       { k: 'ביקוש', v: 'גבוה מאוד' },
     ],
-    icon: Waves,
-    accent: 'from-sky-500 to-sky-700',
   },
   {
     num: '03',
@@ -62,8 +56,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '10 ימ׳' },
       { k: 'ביקוש', v: 'יציב' },
     ],
-    icon: Building,
-    accent: 'from-brand to-clay',
   },
   {
     num: '04',
@@ -78,8 +70,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '11 ימ׳' },
       { k: 'ביקוש', v: 'עולה' },
     ],
-    icon: Compass,
-    accent: 'from-sand-500 to-sand-600',
   },
   {
     num: '05',
@@ -94,8 +84,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '8 ימ׳' },
       { k: 'ביקוש', v: 'גבוה' },
     ],
-    icon: Home,
-    accent: 'from-clay to-clay-600',
   },
   {
     num: '06',
@@ -110,8 +98,6 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '10 ימ׳' },
       { k: 'ביקוש', v: 'גבוה מאוד' },
     ],
-    icon: Building,
-    accent: 'from-brand-600 to-clay-500',
   },
   {
     num: '07',
@@ -126,44 +112,31 @@ const hoods: Hood[] = [
       { k: 'ימים לחוזה', v: '9 ימ׳' },
       { k: 'ביקוש', v: 'יציב' },
     ],
-    icon: TreePine,
-    accent: 'from-moss-500 to-moss-600',
   },
 ];
 
 export default function Neighborhoods() {
   const [active, setActive] = useState(0);
   const h = hoods[active];
-  const Icon = h.icon;
 
   return (
-    <section
-      id="neighborhoods"
-      className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-cream py-24 lg:py-32"
-    >
-      {/* Ambient — single warm glow */}
-      <div className="pointer-events-none absolute right-1/4 top-20 h-[380px] w-[380px] rounded-full bg-brand/8 blur-[120px]" />
-
-      <div className="edge relative">
-        <div className="grid gap-8 pb-14 md:grid-cols-12 md:gap-16 md:pb-16">
+    <section id="neighborhoods" className="bg-cream section-y">
+      <div className="edge">
+        <div className="grid gap-10 pb-14 md:grid-cols-12 md:gap-12 md:pb-16">
           <div className="md:col-span-5">
-            <span className="kicker">אזורי פעילות</span>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
+            <p className="eyebrow eyebrow-brand">אזורי פעילות</p>
+            <h2
               className="mt-6 h-display"
               style={{
-                fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
-                lineHeight: '1.02',
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                lineHeight: '1.05',
               }}
             >
               מכירים את האזור{' '}
-              <span className="text-gradient-warm">בית־בית.</span>
-            </motion.h2>
+              <span className="text-brand">בית־בית.</span>
+            </h2>
           </div>
-          <div className="md:col-span-7 md:pt-4">
+          <div className="md:col-span-7 md:pt-3">
             <p className="lede">
               קריות, חיפה ונשר. כל אזור — אופי משלו, ביקוש משלו, טווח מחירים משלו.
               אנחנו מכירים את כל הניואנסים של השטח.
@@ -171,164 +144,101 @@ export default function Neighborhoods() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-12 md:gap-10">
-          {/* Tab list */}
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          {/* Tabs */}
           <div className="md:col-span-5">
-            <ul className="overflow-hidden rounded-3xl border border-sand-200 bg-white/80 shadow-soft backdrop-blur-sm">
-              {hoods.map((hood, i) => {
-                const isActive = active === i;
-                const HoodIcon = hood.icon;
-                return (
-                  <li key={hood.num}>
-                    <button
-                      onClick={() => setActive(i)}
-                      className={`relative flex w-full items-center gap-4 px-6 py-4 text-right transition-all sm:px-7 sm:py-5 ${
-                        isActive ? 'bg-gradient-to-l from-cream to-transparent' : 'hover:bg-cream/50'
+            <ul className="border-y border-ink-200">
+              {hoods.map((hood, i) => (
+                <li key={hood.num}>
+                  <button
+                    onClick={() => setActive(i)}
+                    className={`flex w-full items-baseline gap-4 py-4 text-right transition-colors ${
+                      active === i ? 'text-ink' : 'text-ink-500 hover:text-ink'
+                    }`}
+                  >
+                    <span className="font-display text-xs font-bold tabular text-brand">
+                      {hood.num}
+                    </span>
+                    <span
+                      className={`flex-1 font-display text-xl font-semibold tracking-tight sm:text-2xl ${
+                        active === i ? 'text-ink' : 'text-ink-500'
                       }`}
                     >
-                      {/* Accent stripe */}
-                      <span
-                        className={`absolute inset-y-0 right-0 w-[3px] transition-all ${
-                          isActive
-                            ? `bg-gradient-to-b ${hood.accent}`
-                            : 'bg-transparent'
-                        }`}
-                      />
-
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all ${
-                          isActive
-                            ? `bg-gradient-to-br ${hood.accent} text-white shadow-warm`
-                            : 'bg-cream text-ink-400'
-                        }`}
-                      >
-                        <HoodIcon size={16} />
-                      </span>
-
-                      <span className="flex-1 min-w-0">
-                        <span className="flex items-baseline gap-2">
-                          <span className="font-display text-xs font-bold tabular text-brand">
-                            {hood.num}
-                          </span>
-                          <span
-                            className={`font-display text-lg font-bold tracking-tight sm:text-xl ${
-                              isActive ? 'text-ink' : 'text-ink-500'
-                            }`}
-                          >
-                            {hood.name}
-                          </span>
-                        </span>
-                        <span className={`mt-0.5 block truncate text-[11px] font-semibold ${
-                          isActive ? 'text-clay-500' : 'text-ink-400'
-                        }`}>
-                          {hood.meta}
-                        </span>
-                      </span>
-
-                      <MapPin
-                        size={15}
-                        className={isActive ? 'text-brand' : 'text-ink-300'}
-                      />
-                    </button>
-                  </li>
-                );
-              })}
+                      {hood.name}
+                    </span>
+                    <span
+                      className={`h-px transition-all ${
+                        active === i ? 'w-12 bg-brand' : 'w-6 bg-ink-300'
+                      }`}
+                    />
+                  </button>
+                  {i < hoods.length - 1 && (
+                    <div className="border-b border-ink-200" />
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Detail card */}
+          {/* Detail */}
           <div className="md:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
                 key={h.num}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4 }}
-                className="relative overflow-hidden rounded-3xl border border-sand-200 bg-white shadow-soft"
+                transition={{ duration: 0.3 }}
               >
-                {/* Hero strip with gradient + SVG city skyline */}
-                <div
-                  className={`relative h-40 overflow-hidden bg-gradient-to-br ${h.accent}`}
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-400" dir="ltr">
+                  {h.eng}
+                </p>
+                <h3
+                  className="mt-3 font-display font-bold text-ink"
+                  style={{
+                    fontSize: 'clamp(2.25rem, 5vw, 3.5rem)',
+                    lineHeight: '1',
+                    letterSpacing: '-0.025em',
+                  }}
                 >
-                  <div className="absolute inset-0 bg-grain opacity-25 mix-blend-overlay" />
-                  {/* City silhouette */}
-                  <svg
-                    viewBox="0 0 600 120"
-                    preserveAspectRatio="xMidYEnd slice"
-                    className="absolute inset-x-0 bottom-0 w-full opacity-35"
-                    aria-hidden
-                  >
-                    <path
-                      d="M0 120 V80 L30 80 V60 L55 60 V90 L85 90 V50 L110 50 V70 L140 70 V40 L170 40 V85 L200 85 V55 L230 55 V75 L260 75 V45 L290 45 V80 L320 80 V60 L345 60 V90 L380 90 V50 L410 50 V70 L440 70 V40 L470 40 V85 L500 85 V55 L530 55 V75 L560 75 V60 L600 60 V120 Z"
-                      fill="rgba(255,255,255,0.55)"
-                    />
-                  </svg>
+                  {h.name}
+                </h3>
+                <p className="mt-3 text-sm font-semibold text-brand">{h.meta}</p>
 
-                  {/* Floating icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/20 text-white backdrop-blur-md ring-1 ring-white/30">
-                      <Icon size={36} strokeWidth={1.8} />
+                <p className="mt-7 text-base leading-[1.7] text-ink-600 sm:text-lg">
+                  {h.body}
+                </p>
+
+                <div className="mt-8 grid grid-cols-3 gap-4 border-y border-ink-200 py-6">
+                  {h.stats.map((s) => (
+                    <div key={s.k}>
+                      <p className="font-display text-xl font-bold tabular text-ink sm:text-2xl">
+                        {s.v}
+                      </p>
+                      <p className="mt-1 text-[11px] font-semibold text-ink-500">{s.k}</p>
                     </div>
-                  </div>
+                  ))}
                 </div>
 
-                {/* Body */}
-                <div className="p-6 sm:p-8">
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-wider text-ink-400"
-                    dir="ltr"
-                  >
-                    {h.eng}
-                  </p>
-                  <h3
-                    className="mt-2 font-display text-4xl font-black tracking-tight text-ink sm:text-5xl"
-                    style={{ letterSpacing: '-0.025em' }}
-                  >
-                    {h.name}
-                  </h3>
-                  <p className="mt-2 text-sm font-semibold text-brand">
-                    {h.meta}
-                  </p>
-
-                  <p className="mt-5 text-base leading-[1.7] text-ink-600 sm:text-lg">
-                    {h.body}
-                  </p>
-
-                  {/* Stats */}
-                  <div className="mt-6 grid grid-cols-3 gap-3 border-t border-sand-200 pt-6">
-                    {h.stats.map((s) => (
-                      <div key={s.k} className="rounded-2xl bg-cream/70 p-3 text-center">
-                        <p className="font-display text-base font-black text-ink sm:text-lg">
-                          {s.v}
-                        </p>
-                        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-ink-400">
-                          {s.k}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Landmarks */}
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {h.landmarks.map((l) => (
-                      <span
-                        key={l}
-                        className="rounded-full border border-sand-200 bg-cream/60 px-3 py-1 text-xs font-semibold text-ink-600"
-                      >
-                        {l}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href="#contact"
-                    className="mt-7 inline-flex items-center gap-2 font-body text-sm font-semibold text-brand hover:text-clay-500"
-                  >
-                    חפשו איתי ב{h.name}
-                    <ArrowLeft size={14} />
-                  </a>
+                <div className="mt-6 flex flex-wrap gap-x-2 gap-y-1.5 text-sm">
+                  <span className="text-ink-400">ציוני דרך —</span>
+                  {h.landmarks.map((l, idx) => (
+                    <span key={l} className="text-ink-700">
+                      {l}
+                      {idx < h.landmarks.length - 1 && (
+                        <span className="text-ink-300"> ·</span>
+                      )}
+                    </span>
+                  ))}
                 </div>
+
+                <a
+                  href="#contact"
+                  className="mt-8 inline-flex items-center gap-2 border-b border-ink pb-1 font-semibold text-ink hover:border-brand hover:text-brand"
+                >
+                  חפשו איתי ב{h.name}
+                  <ArrowLeft size={14} />
+                </a>
               </motion.div>
             </AnimatePresence>
           </div>

@@ -5,94 +5,81 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-sand-100">
-      {/* Ambient — single warm glow */}
-      <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-brand/10 blur-[120px]" />
-
-      <div className="edge relative pb-10 pt-16 lg:pt-20">
-        {/* Big CTA banner inside footer */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink via-ink-700 to-ink-800 p-8 text-white shadow-lift sm:p-12">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/35 blur-3xl" />
-          <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-clay/25 blur-3xl" />
-
-          <div className="relative grid items-center gap-6 sm:grid-cols-[1fr_auto]">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-brand-200">
-                מוכנים להתחיל?
-              </p>
-              <p
-                className="mt-3 font-display font-black"
-                style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
-                  lineHeight: '1.05',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                הבית של הנכס שלך <br />
-                <span className="text-gradient-warm">מחכה לכם.</span>
-              </p>
-            </div>
-            <a
-              href="#contact"
-              className="btn-brand w-full sm:w-auto"
+    <footer className="border-t border-ink-200 bg-cream">
+      <div className="edge py-16 lg:py-20">
+        {/* CTA strip */}
+        <div className="grid items-center gap-6 border-b border-ink-200 pb-12 sm:grid-cols-[1fr_auto]">
+          <div>
+            <p className="eyebrow eyebrow-brand">מוכנים להתחיל?</p>
+            <p
+              className="mt-4 h-display"
+              style={{
+                fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                lineHeight: '1.05',
+              }}
             >
-              פגישת ייעוץ חינם
-            </a>
+              הבית של הנכס שלך{' '}
+              <span className="text-brand">מחכה לכם.</span>
+            </p>
           </div>
+          <a
+            href="#contact"
+            className="btn-brand whitespace-nowrap"
+          >
+            פגישת ייעוץ חינם
+          </a>
         </div>
 
-        {/* Main footer grid */}
-        <div className="mt-14 grid gap-10 md:grid-cols-12 md:gap-12">
+        {/* Main grid */}
+        <div className="mt-12 grid gap-10 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-4">
             <Image
               src="/logos/logo.svg"
               alt="Rent360"
               width={140}
               height={54}
-              className="h-10 w-auto"
+              className="h-9 w-auto"
             />
-            <p className="mt-5 max-w-xs text-sm leading-[1.7] text-ink-500">
+            <p className="mt-5 max-w-xs text-sm leading-[1.7] text-ink-600">
               ניהול והשכרת נכסים בקריות, חיפה ונשר. שירות מלא לבעלי דירות —
               מהעלאת הנכס לשוק ועד ניהול שוטף לאורך זמן.
             </p>
-            <div className="mt-6 flex gap-2">
-              <a
-                href="https://wa.me/972545650748"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="וואטסאפ"
-                className="flex items-center gap-2 rounded-full border border-sand-300 bg-white/80 px-4 py-2 text-sm font-bold text-ink-700 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
-              >
-                <MessageCircle size={15} />
-                שלחו וואטסאפ
-              </a>
-            </div>
+            <a
+              href="https://wa.me/972545650748"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="וואטסאפ"
+              className="mt-5 inline-flex items-center gap-2 border border-ink-200 px-4 py-2 text-sm font-semibold text-ink transition-base hover:border-ink hover:bg-ink hover:text-white"
+            >
+              <MessageCircle size={14} />
+              שלחו וואטסאפ
+            </a>
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-sm font-bold text-ink">יצירת קשר</p>
+            <p className="eyebrow">יצירת קשר</p>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="tel:+972545650748"
-                  className="flex items-center gap-2 font-display text-xl font-bold tabular text-ink hover:text-brand"
+                  href="tel:0485556060"
+                  className="flex items-center gap-2 font-display text-lg font-semibold tabular text-ink hover:text-brand"
                   dir="ltr"
                 >
-                  <Phone size={14} className="text-brand" />
-                  054-565-0748
+                  <Phone size={13} className="text-brand" />
+                  04-855-6060
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:rent@rent360.co.il"
-                  className="flex items-center gap-2 text-sm font-semibold text-ink-600 hover:text-brand"
+                  className="flex items-center gap-2 text-sm font-semibold text-ink-700 hover:text-brand"
                   dir="ltr"
                 >
                   <Mail size={13} className="text-brand" />
                   rent@rent360.co.il
                 </a>
               </li>
-              <li className="flex items-start gap-2 pt-1 text-sm text-ink-500">
+              <li className="flex items-start gap-2 pt-1 text-sm text-ink-600">
                 <MapPin size={13} className="mt-1 shrink-0 text-brand" />
                 <span>
                   שדרות משה גושן 27,
@@ -104,20 +91,20 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="text-sm font-bold text-ink">ניווט</p>
+            <p className="eyebrow">ניווט</p>
             <ul className="mt-4 space-y-2 text-sm">
               {[
                 ['#manifesto', 'מי אנחנו'],
                 ['#tracks', 'מסלולים'],
                 ['#process', 'התהליך'],
                 ['#founder', 'המייסד'],
-                ['#neighborhoods', 'הקריות'],
+                ['#neighborhoods', 'אזורים'],
                 ['#contact', 'יצירת קשר'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <a
                     href={href}
-                    className="text-ink-500 transition-colors hover:text-brand"
+                    className="text-ink-600 transition-colors hover:text-ink"
                   >
                     {label}
                   </a>
@@ -127,8 +114,8 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-sm font-bold text-ink">אזורי פעילות</p>
-            <ul className="mt-4 space-y-1.5 text-sm text-ink-600">
+            <p className="eyebrow">אזורי פעילות</p>
+            <ul className="mt-4 grid grid-cols-2 gap-y-1.5 text-sm text-ink-700 sm:grid-cols-1">
               {[
                 'קרית ביאליק',
                 'קרית ים',
@@ -138,17 +125,14 @@ export default function Footer() {
                 'חיפה',
                 'נשר',
               ].map((k) => (
-                <li key={k} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-brand to-clay" />
-                  {k}
-                </li>
+                <li key={k}>{k}</li>
               ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-sand-300/60 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ink-200 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year}{' '}
             <span className="font-semibold text-ink">
@@ -157,17 +141,11 @@ export default function Footer() {
             . כל הזכויות שמורות.
           </p>
           <p className="flex items-center gap-4">
-            <a href="/accessibility" className="hover:text-ink">
-              הצהרת נגישות
-            </a>
-            <span className="text-sand-400">·</span>
-            <a href="/terms" className="hover:text-ink">
-              תקנון
-            </a>
-            <span className="text-sand-400">·</span>
-            <a href="/privacy" className="hover:text-ink">
-              מדיניות פרטיות
-            </a>
+            <a href="/accessibility" className="hover:text-ink">הצהרת נגישות</a>
+            <span className="text-ink-300">·</span>
+            <a href="/terms" className="hover:text-ink">תקנון</a>
+            <span className="text-ink-300">·</span>
+            <a href="/privacy" className="hover:text-ink">מדיניות פרטיות</a>
           </p>
         </div>
       </div>

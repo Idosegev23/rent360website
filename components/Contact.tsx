@@ -83,31 +83,25 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-white py-24 lg:py-32"
-    >
-      <div className="pointer-events-none absolute -left-40 top-20 h-[400px] w-[400px] rounded-full bg-brand/8 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-40 bottom-20 h-[400px] w-[400px] rounded-full bg-clay/8 blur-[120px]" />
-
-      <div className="edge relative">
+    <section id="contact" className="bg-white section-y">
+      <div className="edge">
         <div className="grid gap-10 md:grid-cols-12 md:gap-14">
           {/* Left — info */}
           <div className="md:col-span-5">
-            <span className="kicker">יצירת קשר</span>
+            <p className="eyebrow eyebrow-brand">יצירת קשר</p>
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="mt-6 h-display"
               style={{
-                fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
-                lineHeight: '1.02',
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                lineHeight: '1.05',
               }}
             >
               פגישת ייעוץ — <br />
-              <span className="text-gradient-warm">ללא עלות.</span>
+              <span className="text-brand">ללא עלות.</span>
             </motion.h2>
             <p className="lede mt-7 max-w-md">
               השאירו פרטים ונחזור אליכם בהקדם. שיחה אישית קצרה, לא מכירתית,
@@ -159,8 +153,8 @@ export default function Contact() {
             </div>
 
             {/* Small reassurance card */}
-            <div className="mt-6 rounded-2xl border border-sand-200 bg-cream/60 p-4 text-xs text-ink-500 backdrop-blur-sm">
-              <span className="font-bold text-ink">רנט 360 אנטרפרייז בע״מ</span>
+            <div className="mt-6 border-r-2 border-brand pr-4 text-xs text-ink-500">
+              <span className="font-semibold text-ink">רנט 360 אנטרפרייז בע״מ</span>
               {' · '}שירות בקריות, חיפה ונשר
             </div>
           </div>
@@ -171,35 +165,24 @@ export default function Contact() {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-[2rem] border border-sand-200 bg-gradient-to-br from-cream to-sand-50 p-6 shadow-soft sm:p-10"
+              transition={{ duration: 0.5 }}
+              className="rounded-2xl border border-ink-200 bg-cream p-6 sm:p-10"
             >
-              {/* Ambient */}
-              <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand/12 blur-3xl" />
-
               {status === 'success' ? (
                 <SuccessState onReset={() => setStatus('idle')} />
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
                   <div>
                     <label className="label">המסלול שמעניין אותי</label>
                     <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
                       {TRACKS.map((t) => (
                         <label
                           key={t.k}
-                          className={`flex cursor-pointer flex-col rounded-xl border p-3 transition-all ${
+                          className={`flex cursor-pointer flex-col rounded-lg border p-3 transition-base ${
                             track === t.k
-                              ? 'border-brand shadow-warm text-white'
-                              : 'border-sand-200 bg-white/80 text-ink hover:border-ink'
+                              ? 'border-ink bg-ink text-white'
+                              : 'border-ink-200 bg-white text-ink hover:border-ink'
                           }`}
-                          style={
-                            track === t.k
-                              ? {
-                                  backgroundImage:
-                                    'linear-gradient(135deg,#F47B20,#D96711)',
-                                }
-                              : undefined
-                          }
                         >
                           <input
                             type="radio"
@@ -207,12 +190,12 @@ export default function Contact() {
                             className="sr-only"
                             {...register('track')}
                           />
-                          <span className="font-display text-sm font-bold sm:text-base">
+                          <span className="font-display text-sm font-semibold sm:text-base">
                             {t.label}
                           </span>
                           <span
                             className={`mt-0.5 text-[10px] font-semibold ${
-                              track === t.k ? 'text-white/80' : 'text-ink-500'
+                              track === t.k ? 'text-white/70' : 'text-ink-500'
                             }`}
                           >
                             {t.sub}
@@ -228,19 +211,11 @@ export default function Contact() {
                       {KRAYOT.map((k) => (
                         <label
                           key={k}
-                          className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
+                          className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-base ${
                             area === k
-                              ? 'border-brand shadow-warm text-white'
-                              : 'border-sand-200 bg-white/80 text-ink hover:border-ink'
+                              ? 'border-ink bg-ink text-white'
+                              : 'border-ink-200 bg-white text-ink hover:border-ink'
                           }`}
-                          style={
-                            area === k
-                              ? {
-                                  backgroundImage:
-                                    'linear-gradient(135deg,#F47B20,#D96711)',
-                                }
-                              : undefined
-                          }
                         >
                           <input
                             type="radio"
@@ -363,26 +338,19 @@ function Tile({
   return (
     <Tag
       {...(href ? { href, ...extra } : {})}
-      className={`group flex items-center gap-4 rounded-2xl border p-4 transition-all hover:-translate-y-0.5 ${
-        accent
-          ? 'border-brand/30 bg-gradient-to-br from-brand/5 to-clay/5 hover:border-brand hover:shadow-warm'
-          : 'border-sand-200 bg-white/80 backdrop-blur-sm hover:border-brand/40 hover:shadow-soft'
+      className={`group flex items-center gap-4 border-b border-ink-200 py-4 transition-base ${
+        accent ? 'text-brand hover:text-brand-600' : 'text-ink hover:text-brand'
       }`}
     >
-      <div
-        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-warm transition-transform group-hover:scale-110 ${
-          accent ? '' : 'bg-gradient-to-br from-brand to-clay'
-        }`}
-        style={accent ? { backgroundImage: 'linear-gradient(135deg,#25D366,#128C7E)' } : undefined}
-      >
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center text-ink-400 group-hover:text-brand">
         {icon}
       </div>
-      <div className="min-w-0">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-ink-400">
+      <div className="min-w-0 flex-1">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-400">
           {label}
         </p>
         <p
-          className="mt-0.5 truncate font-display text-base font-bold text-ink sm:text-lg"
+          className="mt-1 truncate font-display text-base font-semibold sm:text-lg"
           dir={href?.startsWith('tel') || href?.startsWith('mailto') ? 'ltr' : 'rtl'}
           style={{
             textAlign:

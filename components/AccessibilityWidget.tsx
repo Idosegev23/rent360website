@@ -154,7 +154,7 @@ export default function AccessibilityWidget() {
         }`}
         style={{ maxHeight: 'calc(100vh - 2.5rem)' }}
       >
-        <header className="flex items-center justify-between border-b border-ink-100 bg-gradient-to-br from-brand to-clay px-5 py-4 text-white">
+        <header className="flex items-center justify-between border-b border-ink-100 bg-ink px-5 py-4 text-white">
           <div className="flex items-center gap-2.5">
             <Accessibility size={20} />
             <h2 className="font-display text-base font-bold">תפריט נגישות</h2>
