@@ -58,29 +58,49 @@ export default function Footer() {
 
           <div className="md:col-span-3">
             <p className="eyebrow">יצירת קשר</p>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-2.5 text-sm">
               <li>
                 <a
-                  href="tel:0485556060"
-                  className="flex items-center gap-2 font-display text-lg font-semibold tabular text-ink hover:text-brand"
+                  href="tel:+972545650748"
+                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
                   dir="ltr"
                 >
-                  <Phone size={13} className="text-brand" />
-                  04-855-6060
+                  <Phone size={12} className="text-brand" />
+                  054-565-0748 — זיו
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:rent@rent360.co.il"
-                  className="flex items-center gap-2 text-sm font-semibold text-ink-700 hover:text-brand"
+                  href="tel:+972539433178"
+                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
                   dir="ltr"
                 >
-                  <Mail size={13} className="text-brand" />
+                  <Phone size={12} className="text-brand" />
+                  053-943-3178 — אלה
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+972503779990"
+                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
+                  dir="ltr"
+                >
+                  <Phone size={12} className="text-brand" />
+                  050-377-9990 — דריה
+                </a>
+              </li>
+              <li className="pt-1">
+                <a
+                  href="mailto:rent@rent360.co.il"
+                  className="flex items-center gap-2 font-semibold text-ink-700 hover:text-brand"
+                  dir="ltr"
+                >
+                  <Mail size={12} className="text-brand" />
                   rent@rent360.co.il
                 </a>
               </li>
-              <li className="flex items-start gap-2 pt-1 text-sm text-ink-600">
-                <MapPin size={13} className="mt-1 shrink-0 text-brand" />
+              <li className="flex items-start gap-2 pt-1 text-ink-600">
+                <MapPin size={12} className="mt-1 shrink-0 text-brand" />
                 <span>
                   שדרות משה גושן 27,
                   <br />
@@ -138,6 +158,8 @@ export default function Footer() {
             <span className="font-semibold text-ink">
               רנט 360 אנטרפרייז בע״מ
             </span>
+            {' · '}
+            <span className="text-ink-600">רישיון תיווך 3201714</span>
             . כל הזכויות שמורות.
           </p>
           <p className="flex items-center gap-4">

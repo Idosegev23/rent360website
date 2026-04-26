@@ -111,19 +111,19 @@ export default function Contact() {
             <div className="mt-10 space-y-3">
               <Tile
                 icon={<Phone size={17} />}
-                label="זיו עטיה · מנכ״ל"
+                label="זיו · מנכ״ל"
                 value="054-565-0748"
                 href="tel:+972545650748"
               />
               <Tile
                 icon={<Phone size={17} />}
-                label="אלה · משרד"
+                label="אלה"
                 value="053-943-3178"
                 href="tel:+972539433178"
               />
               <Tile
                 icon={<Phone size={17} />}
-                label="דריה · משרד"
+                label="דריה"
                 value="050-377-9990"
                 href="tel:+972503779990"
               />
