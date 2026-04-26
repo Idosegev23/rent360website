@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Marquee as MarqueeUI } from './ui/marquee';
 
 const quotes = [
   {
@@ -129,31 +130,29 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Mini reviews ticker — inline animation (no Tailwind purge risk).
-            dir="ltr" on track for correct translateX direction in RTL document.
-            Each card kept dir="rtl" for Hebrew alignment. */}
-        <div className="marquee-mask mt-16 overflow-hidden">
-          <div
-            className="flex w-max will-change-transform"
-            dir="ltr"
-            style={{ animation: 'ticker 60s linear infinite' }}
-          >
-            {[...mini, ...mini].map((m, idx) => (
-              <div key={idx} className="shrink-0 px-2" dir="rtl">
-                <div className="flex h-full w-[300px] flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4">
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, n) => (
-                      <Star key={n} size={11} fill="#F47B20" strokeWidth={0} />
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed text-ink-700">״{m.t}״</p>
-                  <p className="mt-auto text-xs font-semibold text-ink-500">
-                    {m.w} · {m.where}
-                  </p>
+        {/* Mini reviews — MagicUI Marquee for guaranteed seamless infinite loop */}
+        <div className="relative mt-16">
+          <MarqueeUI pauseOnHover className="[--duration:60s] [--gap:1rem]">
+            {mini.map((m, idx) => (
+              <div
+                key={idx}
+                className="flex h-full w-[300px] flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4"
+              >
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, n) => (
+                    <Star key={n} size={11} fill="#F47B20" strokeWidth={0} />
+                  ))}
                 </div>
+                <p className="text-sm leading-relaxed text-ink-700">״{m.t}״</p>
+                <p className="mt-auto text-xs font-semibold text-ink-500">
+                  {m.w} · {m.where}
+                </p>
               </div>
             ))}
-          </div>
+          </MarqueeUI>
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent" />
         </div>
       </div>
     </section>
