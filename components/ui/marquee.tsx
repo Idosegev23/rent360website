@@ -1,4 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
+'use client';
+
+import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
 interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
@@ -8,15 +10,19 @@ interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
   vertical?: boolean;
   repeat?: number;
+  /** e.g. "40s" */
+  duration?: string;
+  /** e.g. "1rem" — must match the visible flex gap */
+  gap?: string;
 }
 
 /**
  * Pure-CSS infinite marquee (MagicUI pattern).
- * Each "copy" of children is its own animated flex child, so the loop is
- * mathematically seamless via translateX(calc(-100% - var(--gap))).
+ * Each "copy" is its own animated flex child translating by
+ * calc(-100% - var(--marquee-gap)), which guarantees seamless looping.
  *
- * Control speed via `[--duration:20s]` className utility.
- * Control gap via `[--gap:1rem]` className utility.
+ * Animation + gap are passed via inline style so neither Tailwind purge
+ * nor RTL inheritance can break them.
  */
 export function Marquee({
   className,
@@ -25,14 +31,27 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  duration = '40s',
+  gap = '1rem',
   ...props
 }: MarqueeProps) {
+  const containerStyle: CSSProperties = {
+    gap,
+    ['--marquee-gap' as string]: gap,
+  };
+
+  const animationName = vertical ? 'marquee-y' : 'marquee-x';
+  const trackStyle: CSSProperties = {
+    gap,
+    animation: `${animationName} ${duration} linear infinite${reverse ? ' reverse' : ''}`,
+  };
+
   return (
     <div
       {...props}
+      style={containerStyle}
       className={cn(
-        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem]',
-        'gap-[var(--gap)]',
+        'group flex overflow-hidden',
         vertical ? 'flex-col' : 'flex-row',
         className,
       )}
@@ -40,13 +59,11 @@ export function Marquee({
       {Array.from({ length: repeat }).map((_, i) => (
         <div
           key={i}
+          style={trackStyle}
           className={cn(
-            'flex shrink-0 justify-around gap-[var(--gap)]',
-            vertical
-              ? 'animate-marquee-vertical flex-col'
-              : 'animate-marquee flex-row',
+            'flex shrink-0 justify-around',
+            vertical ? 'flex-col' : 'flex-row',
             pauseOnHover && 'group-hover:[animation-play-state:paused]',
-            reverse && '[animation-direction:reverse]',
           )}
         >
           {children}

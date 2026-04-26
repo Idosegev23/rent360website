@@ -142,6 +142,17 @@ body {
   -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
 }
 
+/* === Marquee keyframes (defined in CSS to bypass Tailwind purge issues) === */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--marquee-gap, 1rem))); }
+}
+
+@keyframes marquee-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--marquee-gap, 1rem))); }
+}
+
 /* --------------------------------------------------
  * Accessibility (IS 5568 / WCAG 2.1 AA)
  * -------------------------------------------------- */

@@ -18,7 +18,7 @@ export default function Marquee() {
       aria-label="אזורי פעילות"
       className="border-y border-ink-100 bg-cream"
     >
-      <MarqueeUI className="[--duration:35s] [--gap:3rem] py-4">
+      <MarqueeUI duration="35s" gap="3rem" className="py-4">
         {areas.map((c) => (
           <span
             key={c}

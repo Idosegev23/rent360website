@@ -132,7 +132,7 @@ export default function Testimonials() {
 
         {/* Mini reviews — MagicUI Marquee for guaranteed seamless infinite loop */}
         <div className="relative mt-16">
-          <MarqueeUI pauseOnHover className="[--duration:60s] [--gap:1rem]">
+          <MarqueeUI pauseOnHover duration="60s" gap="1rem">
             {mini.map((m, idx) => (
               <div
                 key={idx}
