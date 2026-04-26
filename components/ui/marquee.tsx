@@ -23,6 +23,15 @@ interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
  *
  * Animation + gap are passed via inline style so neither Tailwind purge
  * nor RTL inheritance can break them.
+ *
+ * IMPORTANT: dir="ltr" is forced on the outer wrapper. The MagicUI pattern
+ * relies on flex-row laying out copies left-to-right so the off-screen
+ * "spare" copies sit on the right and feed the visible area as everything
+ * translates leftward. Under the page-wide dir="rtl" (Hebrew layout), the
+ * copies would be laid out right-to-left and the rightmost slot would empty
+ * out at the end of every cycle, producing the visible jump/reset bug.
+ * Hebrew text inside children still renders RTL via the unicode bidi
+ * algorithm — only the marquee track ordering is forced LTR.
  */
 export function Marquee({
   className,
@@ -49,6 +58,7 @@ export function Marquee({
   return (
     <div
       {...props}
+      dir="ltr"
       style={containerStyle}
       className={cn(
         'group flex overflow-hidden',
@@ -59,6 +69,7 @@ export function Marquee({
       {Array.from({ length: repeat }).map((_, i) => (
         <div
           key={i}
+          dir="rtl"
           style={trackStyle}
           className={cn(
             'flex shrink-0 justify-around',
