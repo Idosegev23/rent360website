@@ -129,12 +129,14 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Mini reviews ticker — track is dir="ltr" for translateX correctness,
-            each card is dir="rtl" so Hebrew text stays right-aligned. */}
+        {/* Mini reviews ticker — inline animation (no Tailwind purge risk).
+            dir="ltr" on track for correct translateX direction in RTL document.
+            Each card kept dir="rtl" for Hebrew alignment. */}
         <div className="marquee-mask mt-16 overflow-hidden">
           <div
-            className="flex w-max animate-ticker-slow will-change-transform"
+            className="flex w-max will-change-transform"
             dir="ltr"
+            style={{ animation: 'ticker 60s linear infinite' }}
           >
             {[...mini, ...mini].map((m, idx) => (
               <div key={idx} className="shrink-0 px-2" dir="rtl">
