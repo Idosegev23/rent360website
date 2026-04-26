@@ -14,22 +14,21 @@ export default function Marquee() {
   return (
     <section
       aria-label="אזורי פעילות"
-      className="border-y border-ink-100 bg-cream py-5"
+      className="overflow-hidden border-y border-ink-100 bg-cream py-5"
     >
-      <div className="marquee-mask flex overflow-hidden">
-        <div className="flex shrink-0 animate-ticker gap-12 pl-12 will-change-transform">
-          {Array.from({ length: 3 })
-            .flatMap(() => areas)
-            .map((c, i) => (
-              <span
-                key={i}
-                className="flex shrink-0 items-center gap-3 whitespace-nowrap font-display text-base font-semibold text-ink-800"
-              >
-                <span className="inline-block h-1 w-1 rounded-full bg-brand" />
-                {c}
-              </span>
-            ))}
-        </div>
+      {/* w-max sizes the flex track to its content so translateX(-50%) lands exactly on the duplicate.
+          px-6 inside each item creates the visual gap (no flex gap), so spacing is identical
+          between every adjacent pair, including across the loop boundary. */}
+      <div className="flex w-max animate-ticker will-change-transform">
+        {[...areas, ...areas].map((c, i) => (
+          <span
+            key={i}
+            className="flex shrink-0 items-center gap-3 whitespace-nowrap px-6 font-display text-base font-semibold text-ink-800"
+          >
+            <span className="inline-block h-1 w-1 rounded-full bg-brand" />
+            {c}
+          </span>
+        ))}
       </div>
     </section>
   );

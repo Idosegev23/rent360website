@@ -129,16 +129,12 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Mini reviews ticker — endless flow */}
+        {/* Mini reviews ticker — w-max + 2 copies + per-item padding for seamless loop */}
         <div className="marquee-mask mt-16 overflow-hidden">
-          <div className="flex animate-ticker gap-3 will-change-transform">
-            {Array.from({ length: 3 })
-              .flatMap(() => mini)
-              .map((m, idx) => (
-                <div
-                  key={idx}
-                  className="flex w-[320px] shrink-0 flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4"
-                >
+          <div className="flex w-max animate-ticker-slow will-change-transform">
+            {[...mini, ...mini].map((m, idx) => (
+              <div key={idx} className="px-2">
+                <div className="flex h-full w-[300px] shrink-0 flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4">
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, n) => (
                       <Star key={n} size={11} fill="#F47B20" strokeWidth={0} />
@@ -149,7 +145,8 @@ export default function Testimonials() {
                     {m.w} · {m.where}
                   </p>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
