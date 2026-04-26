@@ -39,8 +39,8 @@ const bullets = [
 export default function Manifesto() {
   return (
     <section id="manifesto" className="relative overflow-hidden bg-white py-24 lg:py-32">
-      {/* Background flourish */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand/8 via-clay/6 to-transparent blur-[120px]" />
+      {/* Background flourish — single subtle layer */}
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-brand/6 blur-[120px]" />
 
       <div className="edge relative">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
@@ -115,14 +115,13 @@ export default function Manifesto() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
-                    className="group relative overflow-hidden rounded-3xl border border-sand-200/70 bg-gradient-to-br from-white to-cream-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-warm sm:p-7"
+                    className="group relative overflow-hidden rounded-3xl border border-sand-200/60 bg-white p-6 transition-base hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-card sm:p-7"
                   >
-                    <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-brand/0 blur-2xl transition-all duration-500 group-hover:bg-brand/15" />
                     <div className="relative flex items-start justify-between">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-clay text-white shadow-warm">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/10 text-brand transition-base group-hover:bg-brand group-hover:text-white">
                         <Icon size={19} />
                       </div>
-                      <span className="font-display text-lg font-black text-sand-300">
+                      <span className="font-display text-lg font-black text-sand-300 tabular">
                         0{i + 1}
                       </span>
                     </div>

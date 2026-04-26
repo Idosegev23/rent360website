@@ -103,14 +103,14 @@ export default function Testimonials() {
               className="relative"
             >
               <p
-                className="font-serif italic leading-[1.35] text-ink"
+                className="font-display leading-[1.4] text-ink"
                 style={{
                   fontSize: 'clamp(1.35rem, 3vw, 2.25rem)',
-                  letterSpacing: '-0.01em',
+                  letterSpacing: '-0.015em',
                   fontWeight: 500,
                 }}
               >
-                &ldquo;{q.text}&rdquo;
+                ״{q.text}״
               </p>
 
               <footer className="mt-10 flex flex-wrap items-end justify-between gap-5 border-t border-sand-200 pt-6">

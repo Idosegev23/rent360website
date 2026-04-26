@@ -6,10 +6,8 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-sand-100">
-      {/* Ambient */}
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-brand/10 blur-[140px]" />
-      <div className="pointer-events-none absolute -left-40 -bottom-40 h-[500px] w-[500px] rounded-full bg-clay/10 blur-[140px]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.3] mix-blend-multiply bg-grain" />
+      {/* Ambient — single warm glow */}
+      <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-brand/10 blur-[120px]" />
 
       <div className="edge relative pb-10 pt-16 lg:pt-20">
         {/* Big CTA banner inside footer */}

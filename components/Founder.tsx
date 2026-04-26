@@ -29,10 +29,8 @@ const credentials = [
 export default function Founder() {
   return (
     <section id="founder" className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-cream py-24 lg:py-32">
-      {/* Ambient warmth */}
-      <div className="pointer-events-none absolute -right-40 top-20 h-[400px] w-[400px] rounded-full bg-brand/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -left-40 bottom-20 h-[400px] w-[400px] rounded-full bg-clay/10 blur-[120px]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-multiply bg-grain" />
+      {/* Ambient — single warm glow */}
+      <div className="pointer-events-none absolute -right-40 top-20 h-[420px] w-[420px] rounded-full bg-brand/8 blur-[120px]" />
 
       <div className="edge relative">
         <div className="grid gap-12 md:grid-cols-12 md:gap-14">

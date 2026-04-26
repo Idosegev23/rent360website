@@ -11,6 +11,14 @@
   --clay: #c9623f;
   --sand: #e9d9b8;
   --moss: #3f5541;
+
+  /* Motion tokens — unified across the site */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 380ms;
 }
 
 html {
@@ -197,6 +205,34 @@ body {
     opacity: 0.35;
     mix-blend-mode: multiply;
     pointer-events: none;
+  }
+
+  /* === Surface tokens — 3 canonical surfaces === */
+  .surface-light {
+    @apply rounded-3xl border border-sand-200/60 bg-white shadow-soft;
+  }
+  .surface-cream {
+    @apply rounded-3xl border border-sand-200/60 bg-cream;
+  }
+  .surface-dark {
+    @apply rounded-3xl bg-ink text-white shadow-lift;
+  }
+
+  /* === Section paddings — uniform vertical rhythm === */
+  .section-y {
+    @apply py-20 lg:py-28;
+  }
+
+  /* === Single decorative glow utility (use sparingly: max 1 per section) === */
+  .glow-warm {
+    @apply pointer-events-none absolute h-[420px] w-[420px] rounded-full bg-brand/8 blur-[100px];
+  }
+
+  /* Standard transitions — apply for hover/focus polish */
+  .transition-base {
+    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-standard);
   }
 }
 

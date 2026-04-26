@@ -141,9 +141,8 @@ export default function Neighborhoods() {
       id="neighborhoods"
       className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-cream py-24 lg:py-32"
     >
-      {/* Ambient */}
-      <div className="pointer-events-none absolute right-1/4 top-20 h-[400px] w-[400px] rounded-full bg-brand/10 blur-[120px]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.3] mix-blend-multiply bg-grain" />
+      {/* Ambient — single warm glow */}
+      <div className="pointer-events-none absolute right-1/4 top-20 h-[380px] w-[380px] rounded-full bg-brand/8 blur-[120px]" />
 
       <div className="edge relative">
         <div className="grid gap-8 pb-14 md:grid-cols-12 md:gap-16 md:pb-16">

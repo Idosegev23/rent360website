@@ -85,10 +85,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-warm-radial" />
       <div className="pointer-events-none absolute inset-0 bg-dots [background-size:24px_24px] opacity-[0.18]" />
 
-      {/* Warm ambient blobs */}
-      <div className="pointer-events-none absolute -left-40 -top-20 h-[520px] w-[520px] rounded-full bg-brand/15 blur-[140px]" />
-      <div className="pointer-events-none absolute right-0 top-40 h-[460px] w-[460px] rounded-full bg-clay/12 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-[300px] w-[600px] rounded-full bg-sand/40 blur-[120px]" />
+      {/* Warm ambient — 1 glow only, less competing layers */}
+      <div className="pointer-events-none absolute -left-32 -top-16 h-[480px] w-[480px] rounded-full bg-brand/12 blur-[120px]" />
 
       <div className="edge relative">
         <div className="grid items-center gap-12 pb-20 md:grid-cols-12 md:gap-10 lg:pb-28">

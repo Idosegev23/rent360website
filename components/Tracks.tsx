@@ -83,10 +83,8 @@ const tracks: Track[] = [
 export default function Tracks() {
   return (
     <section id="tracks" className="relative overflow-hidden bg-gradient-to-b from-cream via-cream-100 to-cream py-24 lg:py-32">
-      {/* Ambient */}
-      <div className="pointer-events-none absolute -right-40 top-40 h-[500px] w-[500px] rounded-full bg-brand/10 blur-[140px]" />
-      <div className="pointer-events-none absolute -left-40 bottom-20 h-[500px] w-[500px] rounded-full bg-clay/10 blur-[140px]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.3] mix-blend-multiply bg-grain" />
+      {/* Ambient — single warm glow */}
+      <div className="pointer-events-none absolute -left-40 bottom-20 h-[420px] w-[420px] rounded-full bg-brand/8 blur-[120px]" />
 
       <div className="edge relative">
         <div className="max-w-3xl">
@@ -121,10 +119,10 @@ export default function Tracks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl p-7 transition-all duration-400 ${
+                className={`group relative flex flex-col overflow-hidden rounded-3xl p-7 transition-base ${
                   t.featured
-                    ? 'text-white shadow-lift xl:-translate-y-4 hover:-translate-y-5'
-                    : 'border border-sand-200/70 bg-gradient-to-br from-white to-cream-50 hover:-translate-y-1 hover:border-brand/40 hover:shadow-warm'
+                    ? 'text-white shadow-lift xl:-translate-y-4 hover:-translate-y-[18px]'
+                    : 'border border-sand-200/60 bg-white hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-card'
                 }`}
                 style={
                   t.featured

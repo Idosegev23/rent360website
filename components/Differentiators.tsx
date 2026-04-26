@@ -48,7 +48,6 @@ const items: Item[] = [
     icon: ShieldCheck,
     title: 'ביטוח דמי שכירות',
     body: 'אופציה לפוליסה שמבטיחה יציבות הכנסה גם מול דייר בעייתי.',
-    accent: 'brand',
   },
   {
     icon: Scale,
@@ -65,7 +64,6 @@ const items: Item[] = [
     title: 'הדירה מתפנקת',
     body: 'חשמל וריהוט במחירים מוזלים — הדירה שלכם עולה בשווי.',
     span: 'lg:col-span-2',
-    accent: 'cream',
   },
 ];
 
