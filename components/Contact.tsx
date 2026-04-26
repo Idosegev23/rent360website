@@ -124,14 +124,14 @@ export default function Contact() {
               <Tile
                 icon={<Phone size={17} />}
                 label="אלה · משרד"
-                value="054-000-0000"
-                href="tel:+972540000000"
+                value="053-943-3178"
+                href="tel:+972539433178"
               />
               <Tile
                 icon={<Phone size={17} />}
                 label="דריה · משרד"
-                value="054-000-0000"
-                href="tel:+972540000000"
+                value="050-377-9990"
+                href="tel:+972503779990"
               />
               <Tile
                 icon={<MessageCircle size={17} />}
