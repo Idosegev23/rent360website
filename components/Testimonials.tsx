@@ -129,12 +129,16 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Mini reviews ticker — w-max + 2 copies + per-item padding for seamless loop */}
+        {/* Mini reviews ticker — track is dir="ltr" for translateX correctness,
+            each card is dir="rtl" so Hebrew text stays right-aligned. */}
         <div className="marquee-mask mt-16 overflow-hidden">
-          <div className="flex w-max animate-ticker-slow will-change-transform">
+          <div
+            className="flex w-max animate-ticker-slow will-change-transform"
+            dir="ltr"
+          >
             {[...mini, ...mini].map((m, idx) => (
-              <div key={idx} className="px-2">
-                <div className="flex h-full w-[300px] shrink-0 flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4">
+              <div key={idx} className="shrink-0 px-2" dir="rtl">
+                <div className="flex h-full w-[300px] flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4">
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, n) => (
                       <Star key={n} size={11} fill="#F47B20" strokeWidth={0} />
