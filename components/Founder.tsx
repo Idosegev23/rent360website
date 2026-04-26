@@ -6,22 +6,22 @@ import { motion } from 'framer-motion';
 const credentials = [
   {
     title: 'רישיון תיווך מקרקעין',
-    body: 'מס׳ רישיון 3201714 — פעילות מורשית מטעם רשם המתווכים.',
+    body: 'מס׳ רישיון 3201714 - פעילות מורשית מטעם רשם המתווכים.',
   },
   {
     title: 'ניסיון של שנים בנדל״ן',
-    body: 'ניהול והשכרת נכסים באזור הקריות, חיפה ונשר — היכרות מעמיקה עם השטח.',
+    body: 'ניהול והשכרת נכסים באזור הקריות, חיפה ונשר - היכרות מעמיקה עם השטח.',
   },
   {
     title: 'שיווק פרויקטים יוקרתיים',
-    body: 'רקע בשיווק נדל״ן פרימיום — הנכס שלך מוצג ברמה הגבוהה ביותר.',
+    body: 'רקע בשיווק נדל״ן פרימיום - הנכס שלך מוצג ברמה הגבוהה ביותר.',
   },
   {
     title: 'תואר ראשון ושני',
-    body: 'יחסים בינלאומיים ומדיניות ציבורית — ניתוח וגישור לכל עסקה.',
+    body: 'יחסים בינלאומיים ומדיניות ציבורית - ניתוח וגישור לכל עסקה.',
   },
   {
-    title: 'הסמכה ביזמות בנייה — הטכניון',
+    title: 'הסמכה ביזמות בנייה - הטכניון',
     body: 'הבנה הנדסית של בניין, שיפוץ ותחזוקה.',
   },
 ];
@@ -42,7 +42,7 @@ export default function Founder() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-ink">
               <Image
                 src="/ziv.png"
-                alt="זיו עטיה — מייסד ומנכ״ל Rent360"
+                alt="זיו עטיה - מייסד ומנכ״ל Rent360"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -83,7 +83,7 @@ export default function Founder() {
             </motion.h2>
 
             <p className="mt-7 max-w-xl text-lg leading-[1.7] text-ink-600 sm:text-xl">
-              מנכ״ל ובעלים של Rent360 — איש חזון עם תשוקה אמיתית לעולם הנדל״ן.
+              מנכ״ל ובעלים של Rent360 - איש חזון עם תשוקה אמיתית לעולם הנדל״ן.
               שילוב של ניסיון שטח, רקע שיווקי יוקרתי, וידע אקדמי מעמיק.
             </p>
 
@@ -118,11 +118,11 @@ export default function Founder() {
 
             <blockquote className="mt-10 border-r-2 border-brand pr-5">
               <p className="font-display text-xl font-medium leading-snug text-ink sm:text-2xl">
-                הולכים יד ביד. יודעים לזהות את הצרכים האישיים של כל בעל נכס —
+                הולכים יד ביד. יודעים לזהות את הצרכים האישיים של כל בעל נכס  - 
                 ולתת להם מענה.
               </p>
               <footer className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink-500">
-                — זיו עטיה, מייסד
+                - זיו עטיה, מייסד
               </footer>
             </blockquote>
           </div>

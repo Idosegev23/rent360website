@@ -33,7 +33,7 @@ const tracks: Track[] = [
     id: 'ha',
     name: 'נעים הליכות',
     tagline: 'ניהול בלבד',
-    audience: 'יש לכם דייר — אין לכם זמן',
+    audience: 'יש לכם דייר - אין לכם זמן',
     headline: 'אתם יוצאים מהתמונה.',
     features: [
       'שירות לדייר',

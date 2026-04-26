@@ -6,23 +6,38 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const quotes = [
   {
-    text: 'בתור בעלת נכס שלא גרה בישראל, תמיד חששתי מהתנהלות מרחוק. מאז שהעברתי את הדירה שלי לניהול של Rent360 — אני רגועה. כל בעיה מטופלת, יש לי דוחות, ומרגיש שיש לי שותף.',
+    text: 'בתור בעלת נכס שלא גרה בישראל, תמיד חששתי מהתנהלות מרחוק. מאז שהעברתי את הדירה שלי לניהול של Rent360 אני רגועה. כל בעיה מטופלת, יש לי דוחות, ומרגיש שיש לי שותף.',
     who: 'יעל ש.',
     where: 'בעלת נכס · קרית ביאליק',
     track: 'נעים זמירות',
   },
   {
-    text: 'קיבלתי שירות מלא — החל מהעלאת הנכס, דרך צילום מקצועי, ועד דייר איכותי עם חוזה מסודר. הכל באחריות, הכל ברור. ממליץ בחום.',
+    text: 'קיבלתי שירות מלא, החל מהעלאת הנכס, דרך צילום מקצועי, ועד דייר איכותי עם חוזה מסודר. הכל באחריות, הכל ברור. ממליץ בחום.',
     who: 'לירן ב.',
     where: 'בעל נכס · קרית מוצקין',
     track: 'נעים פה',
   },
   {
-    text: 'הדייר עזב אחרי 3 חודשים, ובלי לשלם שקל נוסף — קיבלתי דייר חדש. עמדו במילה שלהם. זה שירות שונה לגמרי ממה שהכרתי.',
+    text: 'הדייר עזב אחרי 3 חודשים, ובלי לשלם שקל נוסף קיבלתי דייר חדש. עמדו במילה שלהם. זה שירות שונה לגמרי ממה שהכרתי.',
     who: 'נדב כ.',
     where: 'בעל נכס · קרית אתא',
     track: 'נעים מאוד',
   },
+];
+
+const mini = [
+  { t: 'שותפים אמיתיים. כל בעיה מטופלת, יש לי שקט ראש.', w: 'אורי ל.', where: 'קרית חיים' },
+  { t: 'דוחות מסודרים שמגיעים בזמן. אני יודעת בדיוק מה קורה עם הנכס.', w: 'מיטל ר.', where: 'קרית ים' },
+  { t: 'דייר איכותי בתוך שבוע, חוזה חתום בשני. ממליץ.', w: 'רון ב.', where: 'ביאליק' },
+  { t: 'זמינים תמיד. גם בערב, גם בשישי. שירות יוצא דופן.', w: 'טלי א.', where: 'מוצקין' },
+  { t: 'ראש שקט מאז שעברנו אליהם. שווה כל שקל.', w: 'אמיר מ.', where: 'אתא' },
+  { t: 'תיק הנכס ברור כמו ספר פתוח. מקצועי, נעים, אנושי.', w: 'שירי ג.', where: 'ביאליק' },
+  { t: 'ניהול מרחוק בלי דאגות. אני בחו״ל ושום דבר לא נופל.', w: 'עמית ח.', where: 'חיים' },
+  { t: 'חיסכון אמיתי בזמן ובעצבים. בדיוק מה שחיפשתי.', w: 'הילה נ.', where: 'ים' },
+  { t: 'הצוות מקצועי, נעים, ויודע מה הוא עושה. שווה לכל בעל דירה.', w: 'דוד פ.', where: 'נשר' },
+  { t: 'עברתי אליהם אחרי שנים של חוסר נחת. סוף סוף מישהו שמטפל בכל.', w: 'רינת כ.', where: 'חיפה' },
+  { t: 'שכר הדירה מגיע בזמן, התחזוקה מתבצעת. מה עוד צריך?', w: 'יואב ש.', where: 'מוצקין' },
+  { t: 'התרשמתי כבר משיחת הייעוץ הראשונה. בסוף סגרנו פגישה והכל הסתדר.', w: 'איילת ב.', where: 'אתא' },
 ];
 
 export default function Testimonials() {
@@ -81,7 +96,7 @@ export default function Testimonials() {
               <footer className="mt-12 flex flex-wrap items-end justify-between gap-5 border-t border-ink-200 pt-6">
                 <div>
                   <p className="font-display text-base font-semibold text-ink">
-                    — {q.who}
+                    {q.who}
                   </p>
                   <p className="mt-1 text-sm text-ink-500">
                     {q.where} · מסלול {q.track}
@@ -112,6 +127,30 @@ export default function Testimonials() {
               </footer>
             </motion.blockquote>
           </AnimatePresence>
+        </div>
+
+        {/* Mini reviews ticker — endless flow */}
+        <div className="marquee-mask mt-16 overflow-hidden">
+          <div className="flex animate-ticker gap-3 will-change-transform">
+            {Array.from({ length: 3 })
+              .flatMap(() => mini)
+              .map((m, idx) => (
+                <div
+                  key={idx}
+                  className="flex w-[320px] shrink-0 flex-col gap-2 rounded-xl border border-ink-200 bg-white p-4"
+                >
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, n) => (
+                      <Star key={n} size={11} fill="#F47B20" strokeWidth={0} />
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed text-ink-700">״{m.t}״</p>
+                  <p className="mt-auto text-xs font-semibold text-ink-500">
+                    {m.w} · {m.where}
+                  </p>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </section>

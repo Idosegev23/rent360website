@@ -124,7 +124,7 @@ export default function AccessibilityWidget() {
       {/* Floating toggle button */}
       <button
         onClick={() => setOpen((s) => !s)}
-        aria-label="תפריט נגישות — Alt+A"
+        aria-label="תפריט נגישות - Alt+A"
         aria-expanded={open}
         aria-controls="a11y-menu"
         className="a11y-toggle fixed bottom-5 left-5 z-[95] flex h-14 w-14 items-center justify-center rounded-full bg-ink text-white shadow-lift transition-all duration-200 hover:bg-brand hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/40"

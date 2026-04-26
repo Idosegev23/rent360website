@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: 'הצהרת נגישות · Rent360',
   description:
-    'הצהרת הנגישות של אתר Rent360 — עמידה בתקן ישראלי 5568 ובהנחיות WCAG 2.1 רמה AA.',
+    'הצהרת הנגישות של אתר Rent360 - עמידה בתקן ישראלי 5568 ובהנחיות WCAG 2.1 רמה AA.',
   robots: { index: true, follow: true },
 };
 
@@ -59,13 +59,13 @@ export default function AccessibilityStatementPage() {
                 letterSpacing: '-0.025em',
               }}
             >
-              נגישות לכולם — <br />
+              נגישות לכולם - <br />
               <span className="text-brand">מחויבות שלנו.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-ink-500">
               ב־Rent360 אנו רואים בנגישות ערך מרכזי. האתר שלנו פותח ומתחזק כך
               שכל אדם, עם מוגבלות או בלעדיה, יוכל לגלוש, לקבל מידע, ולצור קשר
-              — באותה הקלות.
+              - באותה הקלות.
             </p>
             <p className="mt-3 text-sm text-ink-400">
               תאריך עדכון אחרון: <span className="font-bold text-ink">{LAST_UPDATED}</span>
@@ -125,11 +125,11 @@ export default function AccessibilityStatementPage() {
             <Section title="תפריט נגישות" icon={<Accessibility size={20} />}>
               <p>
                 בפינה השמאלית התחתונה של המסך זמין כפתור נגישות (אייקון אדם בעמידה).
-                לחיצה עליו — או על צירוף המקשים{' '}
+                לחיצה עליו - או על צירוף המקשים{' '}
                 <kbd className="rounded bg-ink-100 px-1.5 py-0.5 font-mono text-xs font-bold">
                   Alt + A
                 </kbd>{' '}
-                — פותחת תפריט עם ההתאמות הבאות:
+                - פותחת תפריט עם ההתאמות הבאות:
               </p>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {[
@@ -165,9 +165,9 @@ export default function AccessibilityStatementPage() {
               </p>
               <ul className="mt-3 space-y-2">
                 {[
-                  'מסמכי PDF חיצוניים — אנו פועלים להנגיש בהדרגה. במידת הצורך ניתן לבקש גרסה נגישה.',
-                  'תוכן משובץ מצדדים שלישיים (כגון Google Maps, Analytics) — כפוף לנגישות הספק.',
-                  'אלמנטים עם אנימציות אוטומטיות — ניתנים לעצירה דרך תפריט הנגישות או הגדרות המערכת.',
+                  'מסמכי PDF חיצוניים - אנו פועלים להנגיש בהדרגה. במידת הצורך ניתן לבקש גרסה נגישה.',
+                  'תוכן משובץ מצדדים שלישיים (כגון Google Maps, Analytics) - כפוף לנגישות הספק.',
+                  'אלמנטים עם אנימציות אוטומטיות - ניתנים לעצירה דרך תפריט הנגישות או הגדרות המערכת.',
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2.5 text-base leading-relaxed">
                     <AlertTriangle size={16} className="mt-1 shrink-0 text-clay-500" />
@@ -179,7 +179,7 @@ export default function AccessibilityStatementPage() {
 
             <Section title="פנייה לרכז הנגישות" icon={<User size={20} />}>
               <p>
-                אם נתקלתם בבעיית נגישות באתר — נשמח מאוד לשמוע. אנו מתחייבים לטפל
+                אם נתקלתם בבעיית נגישות באתר - נשמח מאוד לשמוע. אנו מתחייבים לטפל
                 בפנייה באופן המהיר ביותר. הפנייה תיעשה לרכז הנגישות שלנו:
               </p>
 
@@ -235,6 +235,26 @@ export default function AccessibilityStatementPage() {
                   עבודה.
                 </p>
               </div>
+            </Section>
+
+            <Section title="נגישות במשרד" icon={<Accessibility size={20} />}>
+              <p>
+                המשרד הראשי שלנו ממוקם ב
+                <strong className="font-bold text-ink">שדרות משה גושן 27, קרית מוצקין</strong>
+                .
+              </p>
+              <p>
+                <strong className="font-bold text-ink">
+                  כרגע המשרד אינו מונגש פיזית לאנשים עם מוגבלות תנועה.
+                </strong>{' '}
+                אם אתם זקוקים לפגישה פיזית והנגישות מהווה אתגר, אנא צרו קשר
+                מראש - נשמח לתאם פגישה בכתובת חלופית מונגשת או להגיע אליכם
+                הביתה.
+              </p>
+              <p>
+                בנוסף, רוב התקשורת השוטפת עם לקוחותינו מתקיימת בטלפון, באימייל
+                ובוואטסאפ - כך שהשירות נגיש לחלוטין גם ללא ביקור פיזי במשרד.
+              </p>
             </Section>
 
             <Section title="עדכונים שוטפים" icon={<Scale size={20} />}>

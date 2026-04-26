@@ -28,15 +28,15 @@ function RotatingListing() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.35 }}
-          className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4"
+          className="flex flex-wrap items-baseline gap-x-3"
         >
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
+          <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-400">
             פנוי
           </span>
-          <span className="font-display text-sm font-semibold text-ink truncate">
+          <span className="font-display text-sm font-semibold text-ink">
             {l.rooms} · {l.area}
           </span>
-          <span className="font-display text-sm font-bold tabular text-brand">
+          <span className="shrink-0 font-display text-sm font-bold tabular text-brand">
             {l.price}
           </span>
         </motion.div>
@@ -105,7 +105,7 @@ export default function Hero() {
             >
               איתור שוכרים באמצעות{' '}
               <strong className="font-semibold text-ink">טכנולוגיה פורצת דרך המשלבת AI</strong>
-              {' '}— שירות מלא לבעלי דירות בקריות, חיפה ונשר.
+              {' '} -  שירות מלא לבעלי דירות בקריות, חיפה ונשר.
             </motion.p>
 
             <motion.div
@@ -115,7 +115,7 @@ export default function Hero() {
               className="mt-10 flex flex-wrap items-center gap-3"
             >
               <a href="#contact" className="btn-brand group">
-                פגישת ייעוץ — חינם
+                פגישת ייעוץ - חינם
                 <ArrowLeft size={15} className="transition-transform duration-200 group-hover:-translate-x-1" />
               </a>
               <a href="#tracks" className="btn-ghost">
@@ -128,7 +128,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — KPI strip */}
+          {/* Right - KPI strip */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export default function Hero() {
 
         <div className="rule" />
 
-        {/* Bottom strip — live ticker */}
+        {/* Bottom strip - live ticker */}
         <div className="grid items-center gap-6 py-8 md:grid-cols-[auto_1fr_auto]">
           <div className="flex items-center gap-3">
             <span className="relative inline-flex h-2 w-2">

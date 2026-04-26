@@ -94,7 +94,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile backdrop — dims rest of page when menu is open */}
+      {/* Mobile backdrop - dims rest of page when menu is open */}
       <div
         onClick={() => setOpen(false)}
         aria-hidden="true"
@@ -104,7 +104,7 @@ export default function Navbar() {
         )}
       />
 
-      {/* Mobile dropdown panel — anchored from top, content offset below navbar */}
+      {/* Mobile dropdown panel - anchored from top, content offset below navbar */}
       <div
         id="mobile-menu"
         role="dialog"

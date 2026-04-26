@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       ...data,
     });
 
-    // Fire email — non-blocking failure for the user (we still confirm receipt).
+    // Fire email - non-blocking failure for the user (we still confirm receipt).
     const emailResult = await sendLeadEmail(data);
     if (!emailResult.ok) {
       console.warn('[rent360:contact] email send result:', emailResult);

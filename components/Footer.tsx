@@ -41,7 +41,7 @@ export default function Footer() {
               className="h-9 w-auto"
             />
             <p className="mt-5 max-w-xs text-sm leading-[1.7] text-ink-600">
-              ניהול והשכרת נכסים בקריות, חיפה ונשר. שירות מלא לבעלי דירות —
+              ניהול והשכרת נכסים בקריות, חיפה ונשר. שירות מלא לבעלי דירות  - 
               מהעלאת הנכס לשוק ועד ניהול שוטף לאורך זמן.
             </p>
             <a
@@ -62,41 +62,40 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+972545650748"
-                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
-                  dir="ltr"
+                  className="flex items-center gap-2 font-semibold text-ink hover:text-brand"
                 >
-                  <Phone size={12} className="text-brand" />
-                  054-565-0748 — זיו
+                  <Phone size={12} className="shrink-0 text-brand" />
+                  <span>זיו</span>
+                  <span className="tabular text-ink-600" dir="ltr">054-565-0748</span>
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+972539433178"
-                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
-                  dir="ltr"
+                  className="flex items-center gap-2 font-semibold text-ink hover:text-brand"
                 >
-                  <Phone size={12} className="text-brand" />
-                  053-943-3178 — אלה
+                  <Phone size={12} className="shrink-0 text-brand" />
+                  <span>אלה</span>
+                  <span className="tabular text-ink-600" dir="ltr">053-943-3178</span>
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+972503779990"
-                  className="flex items-center gap-2 font-semibold tabular text-ink hover:text-brand"
-                  dir="ltr"
+                  className="flex items-center gap-2 font-semibold text-ink hover:text-brand"
                 >
-                  <Phone size={12} className="text-brand" />
-                  050-377-9990 — דריה
+                  <Phone size={12} className="shrink-0 text-brand" />
+                  <span>דריה</span>
+                  <span className="tabular text-ink-600" dir="ltr">050-377-9990</span>
                 </a>
               </li>
               <li className="pt-1">
                 <a
                   href="mailto:rent@rent360.co.il"
                   className="flex items-center gap-2 font-semibold text-ink-700 hover:text-brand"
-                  dir="ltr"
                 >
-                  <Mail size={12} className="text-brand" />
-                  rent@rent360.co.il
+                  <Mail size={12} className="shrink-0 text-brand" />
+                  <span dir="ltr">rent@rent360.co.il</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 pt-1 text-ink-600">

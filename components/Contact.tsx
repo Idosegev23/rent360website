@@ -86,7 +86,7 @@ export default function Contact() {
     <section id="contact" className="bg-white section-y">
       <div className="edge">
         <div className="grid gap-10 md:grid-cols-12 md:gap-14">
-          {/* Left — info */}
+          {/* Left - info */}
           <div className="md:col-span-5">
             <p className="eyebrow eyebrow-brand">יצירת קשר</p>
             <motion.h2
@@ -100,7 +100,7 @@ export default function Contact() {
                 lineHeight: '1.05',
               }}
             >
-              פגישת ייעוץ — <br />
+              פגישת ייעוץ - <br />
               <span className="text-brand">ללא עלות.</span>
             </motion.h2>
             <p className="lede mt-7 max-w-md">
@@ -148,7 +148,7 @@ export default function Contact() {
               <Tile
                 icon={<Clock size={17} />}
                 label="שעות פעילות"
-                value="א׳–ה׳ 09:00–19:00 · ו׳ 09:00–13:00"
+                value="א׳-ה׳ 09:00-19:00 · ו׳ 09:00-13:00"
               />
             </div>
 
@@ -159,7 +159,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
+          {/* Right - form */}
           <div className="md:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -428,7 +428,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
         <span className="text-gradient-warm">קיבלנו.</span>
       </h3>
       <p className="mt-6 max-w-md text-base leading-[1.7] text-ink-500">
-        סוכן אישי יחזור אליכם בהקדם, בשעות הפעילות. אם זה דחוף —
+        סוכן אישי יחזור אליכם בהקדם, בשעות הפעילות. אם זה דחוף  - 
         <a
           href="tel:+972545650748"
           className="mr-1 font-bold text-ink underline decoration-brand decoration-2 underline-offset-4"

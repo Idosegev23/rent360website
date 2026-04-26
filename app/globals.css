@@ -53,7 +53,7 @@ body {
     @apply inline-block h-px w-6 bg-brand;
   }
 
-  /* === Display type — editorial scale === */
+  /* === Display type - editorial scale === */
   .h-display {
     @apply font-display font-bold tracking-tight text-ink;
     letter-spacing: -0.025em;
@@ -68,7 +68,7 @@ body {
     @apply font-body text-lg leading-[1.65] text-ink-600 sm:text-xl;
   }
 
-  /* === Buttons — restrained, no gradient === */
+  /* === Buttons - restrained, no gradient === */
   .btn-brand {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-body text-[14px] font-semibold text-white transition-all duration-200 hover:bg-brand-600 active:scale-[0.99];
   }
@@ -81,7 +81,7 @@ body {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-200 bg-white px-6 py-3 font-body text-[14px] font-semibold text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-white active:scale-[0.99];
   }
 
-  /* === Form inputs — clean === */
+  /* === Form inputs - clean === */
   .input {
     @apply w-full rounded-lg border border-ink-200 bg-white px-4 py-3 font-body text-base font-medium text-ink placeholder:text-ink-400 outline-none transition-all duration-200 focus:border-ink focus:ring-2 focus:ring-ink/10;
   }
@@ -90,7 +90,7 @@ body {
     @apply block font-body text-sm font-semibold text-ink-700;
   }
 
-  /* === Surfaces — 3 only === */
+  /* === Surfaces - 3 only === */
   .surface {
     @apply rounded-xl border border-ink-100 bg-white;
   }
@@ -125,7 +125,7 @@ body {
     @apply h-px w-full bg-ink-200;
   }
 
-  /* Quiet link — underline-thin */
+  /* Quiet link - underline-thin */
   .link-quiet {
     @apply font-semibold text-ink underline decoration-ink-300 decoration-1 underline-offset-4 transition-colors hover:decoration-brand hover:text-brand;
   }
@@ -146,7 +146,7 @@ body {
  * Accessibility (IS 5568 / WCAG 2.1 AA)
  * -------------------------------------------------- */
 
-/* Skip-to-main link — visible only on keyboard focus */
+/* Skip-to-main link - visible only on keyboard focus */
 .skip-link {
   position: fixed;
   top: -100px;
