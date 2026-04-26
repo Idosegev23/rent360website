@@ -321,13 +321,13 @@ select:focus-visible,
   filter: none !important;
 }
 
-/* Reduced motion */
+/* Reduced motion - shortened transitions only.
+   Marquee/ticker animations are decorative info displays (not vestibular triggers)
+   so they keep running at full speed. */
 @media (prefers-reduced-motion: reduce) {
-  *,
+  *:not([data-allow-motion]),
   *::before,
   *::after {
-    animation-duration: 0.001s !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.001s !important;
   }
 }
