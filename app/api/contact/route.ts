@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { sendLeadEmail } from '@/lib/email';
 
 const KRAYOT = [
   'קרית ביאליק',
@@ -31,7 +32,11 @@ export async function POST(req: Request) {
       ...data,
     });
 
-    // TODO: forward to rent@rent360.co.il via Resend / SendGrid and/or CRM.
+    // Fire email — non-blocking failure for the user (we still confirm receipt).
+    const emailResult = await sendLeadEmail(data);
+    if (!emailResult.ok) {
+      console.warn('[rent360:contact] email send result:', emailResult);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
@@ -41,6 +46,7 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     }
+    console.error('[rent360:contact] unexpected error', err);
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }
