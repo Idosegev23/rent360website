@@ -26,26 +26,66 @@ const fraunces = Fraunces({
   display: 'swap',
 });
 
+const SITE_URL = 'https://rent360.co.il';
+const SITE_TITLE = 'Rent360 · ניהול נכסים בקריות, חיפה ונשר';
+const SITE_DESCRIPTION =
+  'ניהול נכסים שהופך השכרה לחוויה נעימה ובטוחה. שירות מלא לבעלי דירות בקריות, חיפה ונשר — איתור שוכרים איכותיים, חוזה מסודר, וליווי שוטף.';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rent360.co.il'),
-  title: 'Rent360 · סוכנות הנדל״ן של הקריות',
-  description:
-    'סוכנות השכרות שמכירה את הקריות יותר מכם. ביאליק, ים, מוצקין, אתא, חיים - נכסים אמיתיים, סוכן אישי, וחוזה שנסגר מהר.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: '%s · Rent360',
+  },
+  description: SITE_DESCRIPTION,
   keywords: [
+    'ניהול נכסים בקריות',
     'השכרה בקריות',
     'דירה להשכרה קרית ביאליק',
     'דירה להשכרה קרית ים',
     'דירה להשכרה קרית מוצקין',
     'דירה להשכרה קרית אתא',
     'דירה להשכרה קרית חיים',
+    'דירה להשכרה חיפה',
+    'דירה להשכרה נשר',
     'Rent360',
     'סוכן נדלן הקריות',
+    'מתווך הקריות',
   ],
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: 'Rent360 · סוכנות הנדל״ן של הקריות',
-    description: 'השכרות בקריות - בלי משחקים, בלי לרוץ בין תיווכים.',
     type: 'website',
     locale: 'he_IL',
+    url: SITE_URL,
+    siteName: 'Rent360',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Rent360 - ניהול נכסים בקריות, חיפה ונשר',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/opengraph-image'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
