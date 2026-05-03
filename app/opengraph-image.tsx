@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 export const runtime = 'nodejs';
-export const alt = 'Rent360 — ניהול נכסים בקריות, חיפה ונשר';
+export const alt = 'Rent360 — Property management in Krayot, Haifa, Nesher';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -12,12 +12,6 @@ export default async function OpengraphImage() {
   const logoPath = join(process.cwd(), 'public', 'logos', 'logo.svg');
   const logoSvg = readFileSync(logoPath, 'utf-8');
   const logoDataUrl = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
-
-  // Load Hebrew font (Rubik Bold static TTF) so Satori shapes RTL text
-  // correctly. Without this, Hebrew comes out reversed/jumbled because
-  // Satori's default font has no Hebrew glyphs.
-  const fontPath = join(process.cwd(), 'public', 'fonts', 'rubik-bold.ttf');
-  const fontData = readFileSync(fontPath);
 
   return new ImageResponse(
     (
@@ -29,8 +23,8 @@ export default async function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '64px 80px',
-          fontFamily: 'Rubik',
+          padding: '72px 96px',
+          fontFamily: 'system-ui, sans-serif',
           position: 'relative',
         }}
       >
@@ -46,28 +40,28 @@ export default async function OpengraphImage() {
           }}
         />
 
-        {/* Top: tiny eyebrow */}
+        {/* Top eyebrow */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '12px',
-            fontSize: '20px',
-            fontWeight: 700,
+            gap: '14px',
+            fontSize: '22px',
+            fontWeight: 600,
             color: '#52525B',
-            letterSpacing: '0.18em',
+            letterSpacing: '0.22em',
             textTransform: 'uppercase',
           }}
         >
           <span
             style={{
               display: 'flex',
-              width: '24px',
+              width: '32px',
               height: '2px',
               background: '#F47B20',
             }}
           />
-          <span>Rent360</span>
+          <span>Property Management</span>
         </div>
 
         {/* Center: brand logo, large */}
@@ -83,74 +77,53 @@ export default async function OpengraphImage() {
           <img
             src={logoDataUrl}
             alt="Rent360"
-            width={680}
-            height={262}
+            width={760}
+            height={293}
             style={{ objectFit: 'contain' }}
           />
         </div>
 
-        {/* Bottom: tagline + areas */}
+        {/* Bottom: URL + areas */}
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '20px',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            gap: '32px',
           }}
         >
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row-reverse',
-              flexWrap: 'wrap',
+              alignItems: 'center',
               gap: '10px',
-              fontSize: '34px',
+              fontSize: '32px',
               fontWeight: 700,
               color: '#0A0A0B',
-              letterSpacing: '-0.025em',
-              lineHeight: 1.2,
+              letterSpacing: '-0.02em',
             }}
           >
-            <span>ניהול נכסים שהופך השכרה</span>
-            <span style={{ color: '#F47B20' }}>לחוויה נעימה ובטוחה.</span>
+            <span>rent360.co.il</span>
           </div>
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row-reverse',
               alignItems: 'center',
-              gap: '14px',
-              fontSize: '20px',
+              gap: '12px',
+              fontSize: '22px',
               fontWeight: 600,
               color: '#52525B',
             }}
           >
-            <span>קרית ביאליק</span>
+            <span>Krayot</span>
             <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>קרית ים</span>
+            <span>Haifa</span>
             <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>קרית מוצקין</span>
-            <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>קרית אתא</span>
-            <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>קרית חיים</span>
-            <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>חיפה</span>
-            <span style={{ color: '#A1A1AA' }}>·</span>
-            <span>נשר</span>
+            <span>Nesher</span>
           </div>
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: 'Rubik',
-          data: fontData,
-          style: 'normal',
-          weight: 700,
-        },
-      ],
-    },
+    { ...size },
   );
 }
