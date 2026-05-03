@@ -1,11 +1,20 @@
 import { ImageResponse } from 'next/og';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const alt = 'Rent360 — ניהול נכסים בקריות, חיפה ונשר';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function OpengraphImage() {
+  // Read the official brand logo from /public/logos/logo.svg and embed it
+  // as a base64 data URL so Satori (the ImageResponse renderer) can use it
+  // without any network fetch.
+  const logoPath = join(process.cwd(), 'public', 'logos', 'logo.svg');
+  const logoSvg = readFileSync(logoPath, 'utf-8');
+  const logoDataUrl = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
+
   return new ImageResponse(
     (
       <div
@@ -33,99 +42,98 @@ export default async function OpengraphImage() {
           }}
         />
 
-        {/* Header — logo */}
+        {/* Top: tiny eyebrow */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',
+            gap: '12px',
+            fontSize: '20px',
+            fontWeight: 600,
+            color: '#52525B',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
           }}
         >
-          {/* Wordmark */}
-          <div
+          <span
             style={{
-              fontSize: '64px',
-              fontWeight: 900,
-              letterSpacing: '-0.04em',
-              color: '#0A0A0B',
+              display: 'flex',
+              width: '24px',
+              height: '2px',
+              background: '#F47B20',
             }}
-          >
-            Rent
-            <span style={{ color: '#F47B20' }}>360</span>
-          </div>
+          />
+          <span>Rent360</span>
         </div>
 
-        {/* Headline */}
+        {/* Center: the actual brand logo, large */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoDataUrl}
+            alt="Rent360"
+            width={680}
+            height={262}
+            style={{ objectFit: 'contain' }}
+          />
+        </div>
+
+        {/* Bottom: tagline + areas */}
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '24px',
+            gap: '20px',
           }}
         >
           <div
             style={{
-              fontSize: '76px',
-              fontWeight: 800,
-              letterSpacing: '-0.035em',
-              lineHeight: 1.05,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+              fontSize: '36px',
+              fontWeight: 700,
               color: '#0A0A0B',
               direction: 'rtl',
-              maxWidth: '950px',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.2,
             }}
           >
-            ניהול נכסים שהופך השכרה{' '}
+            <span>ניהול נכסים שהופך השכרה</span>
             <span style={{ color: '#F47B20' }}>לחוויה נעימה ובטוחה.</span>
           </div>
           <div
             style={{
-              fontSize: '32px',
-              fontWeight: 500,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '14px',
+              fontSize: '20px',
+              fontWeight: 600,
               color: '#52525B',
               direction: 'rtl',
-              lineHeight: 1.4,
             }}
           >
-            שירות מלא לבעלי דירות בקריות, חיפה ונשר.
-          </div>
-        </div>
-
-        {/* Footer — tag row */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            fontSize: '22px',
-            fontWeight: 600,
-            color: '#52525B',
-            direction: 'rtl',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '8px',
-                height: '8px',
-                borderRadius: '999px',
-                background: '#F47B20',
-              }}
-            />
             <span>קרית ביאליק</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>קרית ים</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>קרית מוצקין</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>קרית אתא</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>קרית חיים</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>חיפה</span>
+            <span style={{ color: '#A1A1AA' }}>·</span>
+            <span>נשר</span>
           </div>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>קרית ים</span>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>קרית מוצקין</span>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>קרית אתא</span>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>קרית חיים</span>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>חיפה</span>
-          <span style={{ color: '#A1A1AA' }}>·</span>
-          <span>נשר</span>
         </div>
       </div>
     ),
