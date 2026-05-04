@@ -5,6 +5,7 @@ import Manifesto from '@/components/Manifesto';
 import Founder from '@/components/Founder';
 import Process from '@/components/Process';
 import Tracks from '@/components/Tracks';
+import AdditionalServices from '@/components/AdditionalServices';
 import Differentiators from '@/components/Differentiators';
 import Neighborhoods from '@/components/Neighborhoods';
 import Testimonials from '@/components/Testimonials';
@@ -22,6 +23,7 @@ export default function Page() {
         <Founder />
         <Process />
         <Tracks />
+        <AdditionalServices />
         <Differentiators />
         <Neighborhoods />
         <Testimonials />
