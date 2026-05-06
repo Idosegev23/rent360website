@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Rubik, Assistant, Fraunces } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import AccessibilityWidget from '@/components/AccessibilityWidget';
 import CookieConsent from '@/components/CookieConsent';
 
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <CookieConsent />
         <AccessibilityWidget />
+        <Analytics />
       </body>
     </html>
   );
