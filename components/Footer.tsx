@@ -71,22 +71,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+972539433178"
+                  href="tel:+972527559049"
                   className="flex items-center gap-2 font-semibold text-ink hover:text-brand"
                 >
                   <Phone size={12} className="shrink-0 text-brand" />
-                  <span>אלה</span>
-                  <span className="tabular text-ink-600" dir="ltr">053-943-3178</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+972503779990"
-                  className="flex items-center gap-2 font-semibold text-ink hover:text-brand"
-                >
-                  <Phone size={12} className="shrink-0 text-brand" />
-                  <span>דריה</span>
-                  <span className="tabular text-ink-600" dir="ltr">050-377-9990</span>
+                  <span>שי דוידוב</span>
+                  <span className="tabular text-ink-600" dir="ltr">052-755-9049</span>
                 </a>
               </li>
               <li className="pt-1">

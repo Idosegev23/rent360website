@@ -117,15 +117,9 @@ export default function Contact() {
               />
               <Tile
                 icon={<Phone size={17} />}
-                label="אלה"
-                value="053-943-3178"
-                href="tel:+972539433178"
-              />
-              <Tile
-                icon={<Phone size={17} />}
-                label="דריה"
-                value="050-377-9990"
-                href="tel:+972503779990"
+                label="שי דוידוב · מתווך"
+                value="052-755-9049"
+                href="tel:+972527559049"
               />
               <Tile
                 icon={<MessageCircle size={17} />}
