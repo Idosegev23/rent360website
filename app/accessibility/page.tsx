@@ -10,15 +10,35 @@ import {
   User,
   AlertTriangle,
   Scale,
+  MousePointerClick,
+  Wrench,
+  SlidersHorizontal,
 } from 'lucide-react';
+
 export const metadata: Metadata = {
   title: 'הצהרת נגישות · Rent360',
   description:
-    'הצהרת הנגישות של אתר Rent360 - עמידה בתקן ישראלי 5568 ובהנחיות WCAG 2.1 רמה AA.',
+    'הצהרת הנגישות של אתר Rent360 - עמידה בתקנות שוויון זכויות לאנשים עם מוגבלות וברמת נגישות AA לפי WCAG 2.2.',
   robots: { index: true, follow: true },
 };
 
-const LAST_UPDATED = '23 באפריל 2026';
+const LAST_UPDATED = '11 באוקטובר 2026';
+
+const CHECK_LIST_ITEM =
+  'flex items-start gap-2 text-base leading-relaxed';
+
+function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+      {items.map((t) => (
+        <li key={t} className={CHECK_LIST_ITEM}>
+          <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-brand" />
+          <span>{t}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function AccessibilityStatementPage() {
   return (
@@ -63,9 +83,8 @@ export default function AccessibilityStatementPage() {
               <span className="text-brand">מחויבות שלנו.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-ink-500">
-              ב־Rent360 אנו רואים בנגישות ערך מרכזי. האתר שלנו פותח ומתחזק כך
-              שכל אדם, עם מוגבלות או בלעדיה, יוכל לגלוש, לקבל מידע, ולצור קשר
-              - באותה הקלות.
+              רנט 360 אנטרפרייז בע״מ רואה חשיבות רבה במתן שירות שוויוני לכלל
+              האזרחים ובשיפור השירות הניתן לאזרחים עם מוגבלות.
             </p>
             <p className="mt-3 text-sm text-ink-400">
               תאריך עדכון אחרון: <span className="font-bold text-ink">{LAST_UPDATED}</span>
@@ -74,113 +93,151 @@ export default function AccessibilityStatementPage() {
 
           {/* Sections */}
           <div className="space-y-10">
-            <Section title="תקן הנגישות שלנו">
+            <Section title="מחויבות לנגישות">
               <p>
-                האתר מונגש בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ״ח־
-                1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות
-                לשירות), התשע״ג־2013.
+                רנט 360 אנטרפרייז בע״מ אחראית על הקמת והפעלת האתר{' '}
+                <a
+                  href="https://rent360.co.il"
+                  className="link font-bold text-ink underline"
+                  dir="ltr"
+                >
+                  rent360.co.il
+                </a>
+                . אנו רואים חשיבות רבה במתן שירות שוויוני לכלל האזרחים
+                ובשיפור השירות הניתן לאזרחים עם מוגבלות.
               </p>
               <p>
-                ההנגשה מבוצעת על פי{' '}
-                <strong className="font-bold text-ink">תקן ישראלי ת״י 5568</strong>{' '}
-                ברמת AA, המבוסס על הנחיות{' '}
+                אנו משקיעים משאבים רבים בהנגשת האתר והנכסים הדיגיטליים שלנו על
+                מנת להפוך את שירותי החברה לזמינים יותר עבור אנשים עם מוגבלות.
+              </p>
+              <p>
+                במדינת ישראל כ־20 אחוזים מקרב האוכלוסייה הינם אנשים עם מוגבלות
+                הזקוקים לנגישות דיגיטלית, על מנת לצרוך מידע ושירותים כלליים.
+              </p>
+              <p>
+                הנגשת האתר של רנט 360 אנטרפרייז בע״מ נועדה להפוך אותו לזמין,
+                ידידותי ונוח יותר לשימוש עבור אוכלוסיות עם צרכים מיוחדים,
+                הנובעים בין היתר ממוגבלויות מוטוריות שונות, לקויות קוגניטיביות,
+                קוצר ראייה, עיוורון או עיוורון צבעים, לקויות שמיעה, וכן
+                אוכלוסייה הנמנית על בני הגיל השלישי.
+              </p>
+            </Section>
+
+            <Section title="רמת הנגישות באתר" icon={<Scale size={20} />}>
+              <p>
+                הנגשת האתר בוצעה על ידי חברת הנגשת האתרים{' '}
+                <strong className="font-bold text-ink">
+                  ״Vee הנגשת אתרים״
+                </strong>
+                . רמת הנגישות באתר:{' '}
+                <strong className="font-bold text-ink">AA</strong>.
+              </p>
+              <p>
+                חברת Vee התאימה את נגישות האתר לדפדפנים הנפוצים ולשימוש בטלפון
+                הסלולרי ככל הניתן, והשתמשה בבדיקותיה בקוראי מסך מסוג JAWS ו־NVDA.
+              </p>
+              <p>
+                החברה מקפידה על עמידה בדרישות תקנות שוויון זכויות לאנשים עם
+                מוגבלות 5568 התשע״ג־2013 ברמת AA, וכן מיישמת את המלצות מסמך{' '}
                 <a
-                  href="https://www.w3.org/TR/WCAG21/"
+                  href="https://www.w3.org/TR/WCAG22/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="link font-bold text-ink underline"
                 >
-                  WCAG 2.1
+                  WCAG 2.2
                 </a>{' '}
-                של ארגון W3C.
+                מאת ארגון W3C.
               </p>
-            </Section>
-
-            <Section title="התאמות ואמצעי נגישות" icon={<CheckCircle2 size={20} />}>
-              <p>האתר כולל את ההתאמות הבאות:</p>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {[
-                  'ניווט מלא באמצעות המקלדת (Tab, Shift+Tab, Enter, Esc)',
-                  'מבנה כותרות היררכי (h1→h6) לתמיכה בקוראי מסך',
-                  'תיאורי טקסט (alt) לתמונות ולוגואים',
-                  'תגיות ARIA לכפתורים ולאלמנטים אינטראקטיביים',
-                  'קישור "דילוג לתוכן" בראש כל עמוד (מופיע במיקוד)',
-                  'ניגודיות צבעים העומדת בתקן AA (יחס 4.5:1 ומעלה)',
-                  'תמיכה בהגדלת טקסט של עד 200% ללא איבוד תוכן',
-                  'תמיכה מלאה בעברית, RTL ובקוראי מסך',
-                  'תגובה לפי העדפת prefers-reduced-motion',
-                  'טפסים עם תגיות label ברורות והודעות שגיאה נגישות',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-base leading-relaxed">
-                    <CheckCircle2
-                      size={17}
-                      className="mt-0.5 shrink-0 text-brand"
-                    />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <Section title="תפריט נגישות" icon={<Accessibility size={20} />}>
               <p>
-                בפינה השמאלית התחתונה של המסך זמין כפתור נגישות (אייקון אדם בעמידה).
-                לחיצה עליו - או על צירוף המקשים{' '}
-                <kbd className="rounded bg-ink-100 px-1.5 py-0.5 font-mono text-xs font-bold">
-                  Alt + A
-                </kbd>{' '}
-                - פותחת תפריט עם ההתאמות הבאות:
+                הנגשת האתר בוצעה בהתאם להנחיות רשות התקשוב להנגשת יישומים
+                בדפדפני אינטרנט.
               </p>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {[
-                  'הגדלה/הקטנה של גודל הטקסט (עד +50%)',
-                  'ניגודיות גבוהה (שחור על לבן)',
-                  'ניגודיות הפוכה (צהוב על שחור)',
-                  'שחור־לבן (ללא צבע)',
+            </Section>
+
+            <Section
+              title="כיצד עוברים למצב נגיש?"
+              icon={<MousePointerClick size={20} />}
+            >
+              <p>
+                באתר מוצב אייקון נגישות (בדרך כלל בדפנות האתר). לחיצה על האייקון
+                מאפשרת פתיחה של תפריט הנגישות. לאחר בחירת הפונקציה המתאימה
+                בתפריט יש להמתין לטעינת הדף ולשינוי הרצוי בתצוגה (במידת הצורך).
+              </p>
+              <p>
+                במידה ומעוניינים לבטל את הפעולה, יש ללחוץ על הפונקציה בתפריט
+                פעם שנייה. בכל מצב, ניתן לאפס הגדרות נגישות.
+              </p>
+              <p>
+                התוכנה פועלת בדפדפנים הפופולריים: Chrome, Firefox, Safari,
+                Opera, בכפוף לתנאי היצרן. הגלישה במצב נגישות מומלצת בדפדפן
+                כרום.
+              </p>
+              <p>
+                האתר מספק מבנה סמנטי עבור טכנולוגיות מסייעות ותמיכה בדפוס
+                השימוש המקובל להפעלה עם מקלדת, בעזרת מקשי החיצים, Enter ו־Esc
+                ליציאה מתפריטים וחלונות.
+              </p>
+              <p>
+                לצורך קבלת חווית גלישה מיטבית עם תוכנת הקראת מסך, אנו ממליצים
+                להשתמש בתוכנת NVDA העדכנית ביותר.
+              </p>
+            </Section>
+
+            <Section
+              title="תיקונים והתאמות שבוצעו באתר"
+              icon={<Wrench size={20} />}
+            >
+              <CheckList
+                items={[
+                  'התאמה לקורא מסך - התאמת האתר עבור טכנולוגיות מסייעות כגון NVDA ו־JAWS',
+                  'אמצעי הניווט באתר פשוטים וברורים',
+                  'תכני האתר כתובים באופן ברור, מסודר והיררכי',
+                  'האתר מותאם לצפייה בדפדפנים מודרניים',
+                  'התאמת האתר לתצוגה תואמת מגוון מסכים ורזולוציות',
+                  'כל הדפים באתר בעלי מבנה קבוע (H1/H2/H3 וכו׳)',
+                  'לכל התמונות באתר יש הסבר טקסטואלי חלופי (alt)',
+                ]}
+              />
+            </Section>
+
+            <Section
+              title="פונקציונליות תוכנת הנגישות"
+              icon={<SlidersHorizontal size={20} />}
+            >
+              <CheckList
+                items={[
+                  'התאמה לקורא מסך - התאמת האתר עבור טכנולוגיות מסייעות כגון NVDA ו־JAWS',
+                  'עצירת הבהובים - עצירת אלמנטים נעים וחסימת אנימציות',
+                  'דילוג ישיר לתוכן - דילוג על התפריט הראשי ישירות אל התוכן',
+                  'התאמה לניווט מקלדת',
+                  'הגדלה / הקטנה של טקסט',
+                  'ריווח בין אותיות / מילים / שורות',
+                  'ניגודיות וצבע - גבוהה, הפוכה, שחור לבן',
+                  'גופן קריא',
                   'הדגשת קישורים',
-                  'הדגשת כותרות',
-                  'פונט קריא לדיסלקסיה',
-                  'עצירת אנימציות ותנועה',
-                  'סמן עכבר מוגדל',
-                  'איפוס הגדרות',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-base leading-relaxed">
-                    <CheckCircle2
-                      size={17}
-                      className="mt-0.5 shrink-0 text-brand"
-                    />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 rounded-xl bg-brand/5 p-4 text-sm">
-                ההעדפות שלכם נשמרות במכשיר שלכם ויחולו גם בביקורים עתידיים.
+                  'מדריך קריאה',
+                  'שינוי אייקון סמן עכבר',
+                  'תיאור לתמונות',
+                ]}
+              />
+            </Section>
+
+            <Section title="החרגות" icon={<AlertTriangle size={20} />}>
+              <p>
+                חשוב לציין כי למרות מאמצינו להנגיש את כלל הדפים והאלמנטים באתר,
+                ייתכן שיתגלו חלקים או יכולות שלא הונגשו כראוי או שטרם הונגשו.
+              </p>
+              <p>
+                אנו פועלים לשפר את נגישות האתר שלנו כל העת, כחלק ממחויבותנו
+                לאפשר לכלל האוכלוסייה להשתמש בו, כולל אנשים עם מוגבלות.
               </p>
             </Section>
 
-            <Section title="מגבלות נגישות ידועות" icon={<AlertTriangle size={20} />}>
+            <Section title="יצירת קשר בנושא נגישות" icon={<User size={20} />}>
               <p>
-                למרות המאמץ הרב להנגיש כל פריט באתר, חלק מהתכנים עשויים שלא
-                להיות נגישים באופן מלא:
-              </p>
-              <ul className="mt-3 space-y-2">
-                {[
-                  'מסמכי PDF חיצוניים - אנו פועלים להנגיש בהדרגה. במידת הצורך ניתן לבקש גרסה נגישה.',
-                  'תוכן משובץ מצדדים שלישיים (כגון Google Maps, Analytics) - כפוף לנגישות הספק.',
-                  'אלמנטים עם אנימציות אוטומטיות - ניתנים לעצירה דרך תפריט הנגישות או הגדרות המערכת.',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2.5 text-base leading-relaxed">
-                    <AlertTriangle size={16} className="mt-1 shrink-0 text-clay-500" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <Section title="פנייה לרכז הנגישות" icon={<User size={20} />}>
-              <p>
-                אם נתקלתם בבעיית נגישות באתר - נשמח מאוד לשמוע. אנו מתחייבים לטפל
-                בפנייה באופן המהיר ביותר. הפנייה תיעשה לרכז הנגישות שלנו:
+                במידה ונתקלתם בבעיה בנושא נגישות באתר, נשמח לקבל הערות ובקשות
+                באמצעות פנייה לרכז הנגישות שלנו.
               </p>
 
               <div className="mt-5 rounded-3xl border border-ink-100 bg-white p-6 sm:p-8">
@@ -190,7 +247,7 @@ export default function AccessibilityStatementPage() {
                   </div>
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-wider text-ink-400">
-                      רכז/ת נגישות
+                      רכז נגישות
                     </p>
                     <p className="font-display text-2xl font-bold text-ink">
                       זיו עטיה
@@ -228,13 +285,34 @@ export default function AccessibilityStatementPage() {
                     </dd>
                   </div>
                 </dl>
-
-                <p className="mt-5 text-sm leading-relaxed text-ink-500">
-                  אנא פרטו בפנייתכם: כתובת העמוד שבו התגלתה הבעיה, תיאור התקלה,
-                  סוג הדפדפן והמכשיר, ופרטי קשר לחזרה. נחזור אליכם תוך עד 30 ימי
-                  עבודה.
-                </p>
               </div>
+
+              <p className="mt-5">
+                על מנת שנוכל לטפל בבעיה בדרך הטובה ביותר, אנו ממליצים מאוד לצרף
+                פרטים מלאים ככל שניתן:
+              </p>
+              <ul className="mt-2 space-y-2">
+                {[
+                  'תיאור הבעיה',
+                  'מהי הפעולה שניסיתם לבצע',
+                  'קישור לדף שבו גלשתם',
+                  'סוג הדפדפן וגרסתו',
+                  'מערכת הפעלה',
+                  'סוג הטכנולוגיה המסייעת (במידה והשתמשתם)',
+                ].map((t) => (
+                  <li key={t} className={CHECK_LIST_ITEM}>
+                    <CheckCircle2
+                      size={17}
+                      className="mt-0.5 shrink-0 text-brand"
+                    />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4">
+                רנט 360 אנטרפרייז בע״מ תעשה ככל יכולתה על מנת להנגיש את האתר
+                בצורה המיטבית ולענות לפניות בצורה המקצועית והמהירה ביותר.
+              </p>
             </Section>
 
             <Section title="נגישות במשרד" icon={<Accessibility size={20} />}>
@@ -257,15 +335,9 @@ export default function AccessibilityStatementPage() {
               </p>
             </Section>
 
-            <Section title="עדכונים שוטפים" icon={<Scale size={20} />}>
-              <p>
-                האתר נבדק ומתוחזק באופן שוטף לעמידה בתקן. הצהרה זו מתעדכנת
-                בהתאם לשינויים מהותיים באתר או בתקן.
-              </p>
-              <p className="mt-2 text-sm text-ink-400">
-                עודכן לאחרונה: {LAST_UPDATED}
-              </p>
-            </Section>
+            <p className="px-2 text-sm text-ink-400">
+              תאריך עדכון הצהרת נגישות: {LAST_UPDATED}
+            </p>
           </div>
 
           {/* Back to home */}
